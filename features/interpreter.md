@@ -7,3 +7,5 @@ This is the "Script" tab within Severe, this is the place where you run your cod
 ## Layout
 
 The layout is simplistic, composing of a text-box, and 2 buttons on the bottom to execute, and restart the runtime.
+
+<figure><img src="../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

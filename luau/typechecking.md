@@ -14,13 +14,13 @@ There are three modes currently available. They must be annotated on the top few
 
 As for the other two, they are largely similar but with one important difference: in nonstrict mode, we infer `any` for most of the types if we couldn’t figure it out early enough. This means that given this snippet:
 
-```
+```lua
 local foo = 1
 ```
 
 We can infer `foo` to be of type `number`, whereas the `foo` in the snippet below is inferred `any`:
 
-```
+```lua
 local foo
 foo = 1
 ```
@@ -31,7 +31,7 @@ However, given the second snippet in strict mode, the type checker would be able
 
 Luau’s type system is structural by default, which is to say that we inspect the shape of two tables to see if they are similar enough. This was the obvious choice because Lua 5.1 is inherently structural.
 
-```
+```lua
 type A = {x: number, y: number, z: number?}
 type B = {x: number, y: number, z: number}
 
@@ -48,7 +48,7 @@ The Luau VM supports 10 primitive types: `nil`, `string`, `number`, `boolean`, `
 
 The type checker also provides the builtin types [`unknown`](typechecking.md#unknown-type), [`never`](typechecking.md#never-type), and [`any`](typechecking.md#any-type).
 
-```
+```lua
 local s = "foo"
 local n = 1
 local b = true
@@ -60,7 +60,7 @@ print(a.x) -- Type checker believes this to be ok, but crashes at runtime.
 
 There’s a special case where we intentionally avoid inferring `nil`. It’s a good thing because it’s never useful for a local variable to always be `nil`, thereby permitting you to assign things to it for Luau to infer that instead.
 
-```
+```lua
 local a
 local b = nil
 ```
@@ -69,7 +69,7 @@ local b = nil
 
 `unknown` is also said to be the _top_ type, that is it’s a union of all types.
 
-```
+```lua
 local a: unknown = "hello world!"
 local b: unknown = 5
 local c: unknown = function() return 5 end
@@ -77,7 +77,7 @@ local c: unknown = function() return 5 end
 
 Unlike `any`, `unknown` will not allow itself to be used as a different type!
 
-```
+```lua
 local function unknown(): unknown
     return if math.random() > 0.5 then "hello world!" else 5
 end
@@ -89,7 +89,7 @@ local c: string | number = unknown() -- not ok
 
 In order to turn a variable of type `unknown` into a different type, you must apply [type refinements](typechecking.md#type-refinements) on that variable.
 
-```
+```lua
 local x = unknown()
 if typeof(x) == "number" then
     -- x : number
@@ -100,7 +100,7 @@ end
 
 `never` is also said to be the _bottom_ type, meaning there doesn’t exist a value that inhabits the type `never`. In fact, it is the _dual_ of `unknown`. `never` is useful in many scenarios, and one such use case is when type refinements proves it impossible:
 
-```
+```lua
 local x = unknown()
 if typeof(x) == "number" and typeof(x) == "string" then
     -- x : never
@@ -111,7 +111,7 @@ end
 
 `any` is just like `unknown`, except that it allows itself to be used as an arbitrary type without further checks or annotations. Essentially, it’s an opt-out from the type system entirely.
 
-```
+```lua
 local x: any = 5
 local y: string = x -- no type errors here!
 ```
@@ -120,7 +120,7 @@ local y: string = x -- no type errors here!
 
 Let’s start with something simple.
 
-```
+```lua
 local function f(x) return x end
 
 local a: number = f(1)     -- ok
@@ -132,7 +132,7 @@ In strict mode, the inferred type of this function `f` is `<A>(A) -> A` (take a 
 
 Similarly, we can infer the types of the parameters with ease. By passing a parameter into _anything_ that also has a type, we are saying “this and that has the same type.”
 
-```
+```lua
 local function greetingsHelper(name: string)
     return "Hello, " .. name
 end
@@ -153,7 +153,7 @@ From the type checker perspective, each table can be in one of three states. The
 
 An unsealed table is a table which supports adding new properties, which updates the tables type. Unsealed tables are created using table literals. This is one way to accumulate knowledge of the shape of this table.
 
-```
+```lua
 local t = {x = 1} -- {x: number}
 t.y = 2           -- {x: number, y: number}
 t.z = 3           -- {x: number, y: number, z: number}
@@ -163,7 +163,7 @@ However, if this local were written as `local t: { x: number } = { x = 1 }`, it 
 
 Furthermore, once we exit the scope where this unsealed table was created in, we seal it.
 
-```
+```lua
 local function vec2(x, y)
     local t = {}
     t.x = x
@@ -177,7 +177,7 @@ v2.z = 3 -- not ok
 
 Unsealed tables are _exact_ in that any property of the table must be named by the type. Since Luau treats missing properties as having value `nil`, this means that we can treat an unsealed table which does not mention a property as if it mentioned the property, as long as that property is optional.
 
-```
+```lua
 local t = {x = 1}
 local u : { x : number, y : number? } = t -- ok because y is optional
 local v : { x : number, z : number } = t  -- not ok because z is not optional
@@ -187,14 +187,14 @@ local v : { x : number, z : number } = t  -- not ok because z is not optional
 
 A sealed table is a table that is now locked down. This occurs when the table type is spelled out explicitly via a type annotation, or if it is returned from a function.
 
-```
+```lua
 local t : { x: number } = {x = 1}
 t.y = 2 -- not ok
 ```
 
 Sealed tables are _inexact_ in that the table may have properties which are not mentioned in the type. As a result, sealed tables support _width subtyping_, which allows a table with more properties to be used as a table with fewer properties.
 
-```
+```lua
 type Point1D = { x : number }
 type Point2D = { x : number, y : number }
 local p : Point2D = { x = 5, y = 37 }
@@ -205,7 +205,7 @@ local q : Point1D = p -- ok because Point2D has more properties than Point1D
 
 This typically occurs when the symbol does not have any annotated types or were not inferred anything concrete. In this case, when you index on a parameter, you’re requesting that there is a table with a matching interface.
 
-```
+```lua
 local function f(t)
     return t.x + t.y
            --^   --^ {x: _, y: _}
@@ -220,7 +220,7 @@ f({x = 1})               -- not ok
 
 These are particularly useful for when your table is used similarly to an array.
 
-```
+```lua
 local t = {"Hello", "world!"} -- {[number]: string}
 print(table.concat(t, ", "))
 ```
@@ -231,7 +231,7 @@ Luau supports a concise declaration for array-like tables, `{T}` (for example, `
 
 The type inference engine was built from the ground up to recognize generics. A generic is simply a type parameter in which another type could be slotted in. It’s extremely useful because it allows the type inference engine to remember what the type actually is, unlike `any`.
 
-```
+```lua
 type Pair<T> = {first: T, second: T }
 -- generics can also have defaults!
 type PairWithDefault<T = string> = Pair<T>
@@ -246,7 +246,7 @@ local more_strings: PairWithDefault = { first = "meow", second = "mrrp" }
 
 As well as generic type aliases like `Pair<T>`, Luau supports generic functions. These are functions that, as well as their regular data parameters, take type parameters. For example, a function which reverses an array is:
 
-```
+```lua
 function reverse(a)
   local result = {}
   for i = #a, 1, -1 do
@@ -258,7 +258,7 @@ end
 
 The type of this function is that it can reverse an array, and return an array of the same type. Luau can infer this type, but if you want to be explicit, you can declare the type parameter `T`, for example:
 
-```
+```lua
 function reverse<T>(a: {T}): {T}
   local result: {T} = {}
   for i = #a, 1, -1 do
@@ -270,20 +270,20 @@ end
 
 When a generic function is called, Luau infers type arguments, for example
 
-```
+```lua
 local x: {number} = reverse({1, 2, 3})
 local y: {string} = reverse({"a", "b", "c"})
 ```
 
 Generic types are used for built-in functions as well as user functions, for example the type of two-argument `table.insert` is:
 
-```
+```lua
 <T>({T}, T) -> ()
 ```
 
 Note: Functions don’t support having defaults assigned to generics, meaning the following is invalid
 
-```
+```lua
 function meow<T = string>(mrrp: T)
      print(mrrp .. " :3")
 end
@@ -295,7 +295,7 @@ A union type represents _one of_ the types in this set. If you try to pass a uni
 
 For example, what if this `string | number` was passed into something that expects `number`, but the passed in value was actually a `string`?
 
-```
+```lua
 local stringOrNumber: string | number = "foo"
 
 local onlyString: string = stringOrNumber -- not ok
@@ -308,7 +308,7 @@ Note: it’s impossible to be able to call a function if there are two or more f
 
 An intersection type represents _all of_ the types in this set. It’s useful for two main things: to join multiple tables together, or to specify overloadable functions.
 
-```
+```lua
 type XCoord = {x: number}
 type YCoord = {y: number}
 type ZCoord = {z: number}
@@ -320,7 +320,7 @@ local vec2: Vector2 = {x = 1, y = 2}        -- ok
 local vec3: Vector3 = {x = 1, y = 2, z = 3} -- ok
 ```
 
-```
+```lua
 type SimpleOverloadedFunction = ((string) -> number) & ((number) -> string)
 
 local f: SimpleOverloadedFunction
@@ -341,7 +341,7 @@ Luau’s type system also supports singleton types, which means it’s a type th
 
 > We do not currently support numbers as types. For now, this is intentional.
 
-```
+```lua
 local foo: "Foo" = "Foo" -- ok
 local bar: "Bar" = foo   -- not ok
 local baz: string = foo  -- ok
@@ -356,7 +356,7 @@ This happens all the time, especially through [type refinements](typechecking.md
 
 Luau permits assigning a type to the `...` variadic symbol like any other parameter:
 
-```
+```lua
 local function f(...: number)
 end
 
@@ -368,7 +368,7 @@ f(1, "string") -- not ok
 
 In type annotations, this is written as `...T`:
 
-```
+```lua
 type F = (...number) -> ...string
 ```
 
@@ -378,7 +378,7 @@ Multiple function return values as well as the function variadic parameter use a
 
 When a type alias is defined, generic type pack parameters can be used after the type parameters:
 
-```
+```lua
 type Signal<T, U...> = { f: (T, U...) -> (), data: T }
 ```
 
@@ -386,7 +386,7 @@ type Signal<T, U...> = { f: (T, U...) -> (), data: T }
 
 It is also possible for a generic function to reference a generic type pack from the generics list:
 
-```
+```lua
 local function call<T, U...>(s: Signal<T, U...>, ...: U...)
     s.f(s.data, ...)
 end
@@ -394,7 +394,7 @@ end
 
 Generic types with type packs can be instantiated by providing a type pack:
 
-```
+```lua
 local signal: Signal<string, (number, number, boolean)> = --
 
 call(signal, 1, 2, false)
@@ -402,7 +402,7 @@ call(signal, 1, 2, false)
 
 There are also other ways to instantiate types with generic type pack parameters:
 
-```
+```lua
 type A<T, U...> = (T) -> U...
 
 type B = A<number, ...string> -- with a variadic type pack
@@ -412,7 +412,7 @@ type D = A<number, ()> -- with an empty type pack
 
 Trailing type pack argument can also be provided without parentheses by specifying variadic type arguments:
 
-```
+```lua
 type List<Head, Rest...> = (Head, Rest...) -> ()
 
 type B = List<number> -- Rest... is ()
@@ -426,7 +426,7 @@ type D = Returns<> -- T... is ()
 
 Type pack parameters are not limited to a single one, as many as required can be specified:
 
-```
+```lua
 type Callback<Args..., Rets...> = { f: (Args...) -> Rets... }
 
 type A = Callback<(number, string), ...number>
@@ -436,7 +436,7 @@ type A = Callback<(number, string), ...number>
 
 One common pattern we see with existing Lua/Luau code is the following object-oriented code. While Luau is capable of inferring a decent chunk of this code, it cannot pin down on the types of `self` when it spans multiple methods.
 
-```
+```lua
 local Account = {}
 Account.__index = Account
 
@@ -467,7 +467,7 @@ There’s the next problem: the type of `self` is not shared across methods of `
 
 We can see there’s a lot of problems happening here. This is a case where you’ll have to provide some guidance to Luau in the form of annotations today, but the process is straightforward and without repetition. You first specify the type of _data_ you want your class to have, and then you define the class type separately with `setmetatable` (either via `typeof`, or in the New Type Solver, the `setmetatable` type function). From then on, you can explicitly annotate the `self` type of each method with your class type! Note that while the definition is written e.g. `Account.deposit`, you can still call it as `account:deposit(...)`.
 
-```
+```lua
 local Account = {}
 Account.__index = Account
 
@@ -513,7 +513,7 @@ Based on feedback, we plan to restrict the types of all functions defined with `
 
 Tagged unions are just union types! In particular, they’re union types of tables where they have at least _some_ common properties but the structure of the tables are different enough. Here’s one example:
 
-```
+```lua
 type Ok<T> = { type: "ok", value: T }
 type Err<E> = { type: "err", error: E }
 type Result<T, E> = Ok<T> | Err<E>
@@ -521,7 +521,7 @@ type Result<T, E> = Ok<T> | Err<E>
 
 This `Result<T, E>` type can be discriminated by using type refinements on the property `type`, like so:
 
-```
+```lua
 if result.type == "ok" then
     -- result is known to be Ok<T>
     -- and attempting to index for error here will fail
@@ -551,7 +551,7 @@ The `assert(..)` function may also be used to refine types instead of `if/then`.
 
 Using truthy test:
 
-```
+```lua
 local maybeString: string? = nil
 
 if maybeString then
@@ -567,7 +567,7 @@ end
 
 Using `type` test:
 
-```
+```lua
 local stringOrNumber: string | number = "foo"
 
 if type(stringOrNumber) == "string" then
@@ -583,7 +583,7 @@ end
 
 Using equality test:
 
-```
+```lua
 local myString: string = f()
 
 if myString == "hello" then
@@ -594,7 +594,7 @@ end
 
 And as said earlier, we can compose as many of `and`/`or`/`not` as we wish with these refinements:
 
-```
+```lua
 local function f(x: any, y: any)
     if (x == "hello" or x == "bye") and type(y) == "string" then
         -- x is of type "hello" | "bye"
@@ -609,7 +609,7 @@ end
 
 `assert` can also be used to refine in all the same ways:
 
-```
+```lua
 local stringOrNumber: string | number = "foo"
 
 assert(type(stringOrNumber) == "string")
@@ -624,21 +624,21 @@ Expressions may be typecast using `::`. Typecasting is useful for specifying the
 
 For example, consider the following table constructor where the intent is to store a table of names:
 
-```
+```lua
 local myTable = {names = {}}
 table.insert(myTable.names, 42)         -- Inserting a number ought to cause a type error, but doesn't
 ```
 
 In order to specify the type of the `names` table a typecast may be used:
 
-```
+```lua
 local myTable = {names = {} :: {string}}
 table.insert(myTable.names, 42)         -- not ok, invalid 'number' to 'string' conversion
 ```
 
 A typecast itself is also type checked to ensure that one of the conversion operands is the subtype of the other or `any`:
 
-```
+```lua
 local numericValue = 1
 local value = numericValue :: any             -- ok, all expressions may be cast to 'any'
 local flag = numericValue :: boolean          -- not ok, invalid 'number' to 'boolean' conversion
@@ -646,7 +646,7 @@ local flag = numericValue :: boolean          -- not ok, invalid 'number' to 'bo
 
 When typecasting a variadic or the result of a function with multiple returns, only the first value will be preserved. The rest will be discarded.
 
-```
+```lua
 function returnsMultiple(...): (number, number, number)
     print(... :: string) -- "x"
     return 1, 2, 3
@@ -666,14 +666,14 @@ All enums are also available to use by their name as part of the `Enum` type lib
 
 We can automatically deduce what calls like `Instance.new` and `game:GetService` are supposed to return:
 
-```
+```lua
 local part = Instance.new("Part")
 local basePart: BasePart = part
 ```
 
 Finally, Roblox types can be refined using `IsA`:
 
-```
+```lua
 local function getText(x : Instance) : string
     if x:IsA("TextLabel") or x:IsA("TextButton") or x:IsA("TextBox") then
         return child.Text
@@ -688,7 +688,7 @@ Note that many of these types provide some properties and methods in both lowerC
 
 Let’s say that we have two modules, `Foo` and `Bar`. Luau will try to resolve the paths if it can find any `require` in any scripts. In this case, when you say `script.Parent.Bar`, Luau will resolve it as: relative to this script, go to my parent and get that script named Bar.
 
-```
+```lua
 -- Module Foo
 local Bar = require(script.Parent.Bar)
 
@@ -701,7 +701,7 @@ print(Bar.FakeProperty) -- not ok
 Bar.NewProperty = true -- not ok
 ```
 
-```
+```lua
 -- Module Bar
 export type Baz = string
 
@@ -718,7 +718,7 @@ There are some caveats here though. For instance, the require path must be resol
 
 Cyclic module dependencies can cause problems for the type checker. In order to break a module dependency cycle a typecast of the module to `any` may be used:
 
-```
+```lua
 local myModule = require(MyModule) :: any
 ```
 
@@ -728,7 +728,7 @@ Type functions are functions that run during analysis time and operate on types,
 
 Here’s a simplified implementation of the builtin type function `keyof`. It takes a table type and returns its property names as a [union](about:blank/typecheck#union-types) of [singletons](about:blank/typecheck#singleton-types-aka-literal-types).
 
-```
+```lua
 type function simple_keyof(ty)
     -- Ignoring unions or intersections of tables for simplicity.
     if not ty:is("table") then
@@ -776,49 +776,49 @@ The `types` library is used to create and transform types, and can only be used 
 
 #### `types` library properties <a href="#types-library-properties" id="types-library-properties"></a>
 
-```
+```lua
 types.any
 ```
 
 The [any](about:blank/typecheck#any-type) `type`.
 
-```
+```lua
 types.unknown
 ```
 
 The [unknown](about:blank/typecheck#unknown-type) `type`.
 
-```
+```lua
 types.never
 ```
 
 The [never](about:blank/typecheck#never-type) `type`.
 
-```
+```lua
 types.boolean
 ```
 
 The boolean `type`.
 
-```
+```lua
 types.buffer
 ```
 
 The [buffer](about:blank/library#buffer-library) `type`.
 
-```
+```lua
 types.number
 ```
 
 The number `type`.
 
-```
+```lua
 types.string
 ```
 
 The string `type`.
 
-```
+```lua
 types.thread
 ```
 
@@ -826,19 +826,19 @@ The thread `type`.
 
 ### `types` library functions <a href="#types-library-functions" id="types-library-functions"></a>
 
-```
+```lua
 types.singleton(arg: string | boolean | nil): type
 ```
 
 Returns the [singleton](about:blank/typecheck#singleton-types-aka-literal-types) type of the argument.
 
-```
+```lua
 types.negationof(arg: type): type
 ```
 
 Returns an immutable negation of the argument type.
 
-```
+```lua
 types.optional(arg: type): type
 ```
 
@@ -847,37 +847,37 @@ Returns a version of the given type that is now optional.
 * If the given type is a [union type](about:blank/\(typecheck#union-types\)), `nil` will be added unconditionally as a component.
 * Otherwise, the result will be a union of the given type and the `nil` type.
 
-```
+```lua
 types.unionof(first: type, second: type, ...: type): type
 ```
 
 Returns an immutable [union](about:blank/typecheck#union-types) of two or more arguments.
 
-```
+```lua
 types.intersectionof(first: type, second: type, ...: type): type
 ```
 
 Returns an immutable [intersection](about:blank/typecheck#intersection-types) of two or more arguments.
 
-```
+```lua
 types.newtable(props: { [type]: type | { read: type?, write: type? } }?, indexer: { index: type, readresult: type, writeresult: type? }?, metatable: type?): type
 ```
 
 Returns a fresh, mutable table `type`. Property keys must be string singleton `type`s. The table’s metatable is set if one is provided.
 
-```
+```lua
 types.newfunction(parameters: { head: {type}?, tail: type? }, returns: { head: {type}?, tail: type? }?, generics: {type}?): type
 ```
 
 Returns a fresh, mutable function `type`, using the ordered parameters of `head` and the variadic tail of `tail`.
 
-```
+```lua
 types.copy(arg: type): type
 ```
 
 Returns a deep copy of the argument type.
 
-```
+```lua
 types.generic(name: string?, ispack: boolean?): type
 ```
 
@@ -887,19 +887,19 @@ Creates a [generic](about:blank/typecheck#generic-functions) named `name`. If `i
 
 `type` instances can have extra properties and methods described in subsections depending on its tag.
 
-```
+```lua
 type.tag: "nil" | "unknown" | "never" | "any" | "boolean" | "number" | "string" | "singleton" | "negation" | "union" | "intersection" | "table" | "function" | "class" | "thread" | "buffer"
 ```
 
 An immutable property holding the type’s tag.
 
-```
+```lua
 __eq(arg: type): boolean
 ```
 
 Overrides the `==` operator to return `true` if `self` is syntactically equal to `arg`. This excludes semantically equivalent types, `true | false` is unequal to `boolean`.
 
-```
+```lua
 type:is(arg: "nil" | "unknown" | "never" | "any" | "boolean" | "number" | "string" | "singleton" | "negation" | "union" | "intersection" | "table" | "function" | "class" | "thread" | "buffer")
 ```
 
@@ -907,7 +907,7 @@ Returns `true` if `self` has the argument as its tag.
 
 #### Singleton `type` instance <a href="#singleton-type-instance" id="singleton-type-instance"></a>
 
-```
+```lua
 singletontype:value(): boolean | nil | "string"
 ```
 
@@ -915,13 +915,13 @@ Returns the singleton’s actual value, like `true` for `types.singleton(true)`.
 
 #### Generic `type` instance <a href="#generic-type-instance" id="generic-type-instance"></a>
 
-```
+```lua
 generictype:name(): string?
 ```
 
 Returns the name of the [generic](about:blank/typecheck#generic-functions) or `nil` if it has no name.
 
-```
+```lua
 generictype:ispack(): boolean
 ```
 
@@ -929,7 +929,7 @@ Returns `true` if the [generic](about:blank/typecheck#generic-functions) is a [p
 
 #### Table `type` instance <a href="#table-type-instance" id="table-type-instance"></a>
 
-```
+```lua
 tabletype:setproperty(key: type, value: type?)
 ```
 
@@ -939,7 +939,7 @@ Sets the type of the property for the given `key`, using the same type for both 
 * `value` will be set as both the `read type` and `write type` of the property.
 * If `value` is `nil`, the property is removed.
 
-```
+```lua
 tabletype:setreadproperty(key: type, value: type?)
 ```
 
@@ -950,7 +950,7 @@ Sets the type for reading from the property named by `key`, leaving the type for
 * If `key` is not already present, only a `read type` will be set, making the property read-only.
 * If `value` is `nil`, the property is removed.
 
-```
+```lua
 tabletype:setwriteproperty(key: type, value: type?)
 ```
 
@@ -961,67 +961,67 @@ Sets the type for writing to the property named by `key`, leaving the type for r
 * If `key` is not already present, only a `write type` will be set, making the property write-only.
 * If `value` is `nil`, the property is removed.
 
-```
+```lua
 tabletype:readproperty(key: type): type?
 ```
 
 Returns the type used for reading values from this property, or `nil` if the property doesn’t exist.
 
-```
+```lua
 tabletype:writeproperty(key: type): type?
 ```
 
 Returns the type used for writing values to this property, or `nil` if the property doesn’t exist.
 
-```
+```lua
 tabletype:properties(): { [type]: { read: type?, write: type? } }
 ```
 
 Returns a table mapping property keys to their read and write types.
 
-```
+```lua
 tabletype:setindexer(index: type, result: type)
 ```
 
 Sets the table’s indexer, using the same type for reads and writes.
 
-```
+```lua
 tabletype:setreadindexer(index: type, result: type)
 ```
 
 Sets the type resulting from reading from this table via indexing.
 
-```
+```lua
 tabletype:setwriteindexer(index: type, result: type)
 ```
 
 Sets the type for writing to this table via indexing.
 
-```
+```lua
 tabletype:indexer(): { index: type, readresult: type, writeresult: type }
 ```
 
 Returns the table’s indexer as a table, or `nil` if it doesn’t exist.
 
-```
+```lua
 tabletype:readindexer(): { index: type, result: type }?
 ```
 
 Returns the table’s indexer using the result’s read type, or `nil` if it doesn’t exist.
 
-```
+```lua
 tabletype:writeindexer()
 ```
 
 Returns the table’s indexer using the result’s write type, or `nil` if it doesn’t exist.
 
-```
+```lua
 tabletype:setmetatable(arg: type)
 ```
 
 Sets the table’s metatable.
 
-```
+```lua
 tabletype:metatable(): type?
 ```
 
@@ -1029,37 +1029,37 @@ Gets the table’s metatable, or `nil` if it doesn’t exist.
 
 #### Function `type` instance <a href="#function-type-instance" id="function-type-instance"></a>
 
-```
+```lua
 functiontype:setparameters(head: {type}?, tail: type?)
 ```
 
 Sets the function’s parameters, with the ordered parameters in `head` and the variadic tail in `tail`.
 
-```
+```lua
 functiontype:parameters(): { head: {type}?, tail: type? }
 ```
 
 Returns the function’s parameters, with the ordered parameters in `head` and the variadic tail in `tail`.
 
-```
+```lua
 functiontype:setreturns(head: {type}?, tail: type?)
 ```
 
 Sets the function’s return types, with the ordered parameters in `head` and the variadic tail in `tail`.
 
-```
+```lua
 functiontype:returns(): { head: {type}?, tail: type? }
 ```
 
 Returns the function’s return types, with the ordered parameters in `head` and the variadic tail in `tail`.
 
-```
+```lua
 functiontype:generics(): {type}
 ```
 
 Returns an array of the function’s [generic](about:blank/typecheck#generic-functions) `type`s.
 
-```
+```lua
 functiontype:setgenerics(generics: {type}?)
 ```
 
@@ -1067,7 +1067,7 @@ Sets the function’s [generic](about:blank/typecheck#generic-functions) `type`s
 
 #### Negation `type` instance <a href="#negation-type-instance" id="negation-type-instance"></a>
 
-```
+```lua
 type:inner(): type
 ```
 
@@ -1075,7 +1075,7 @@ Returns the `type` being negated.
 
 #### Union `type` instance <a href="#union-type-instance" id="union-type-instance"></a>
 
-```
+```lua
 uniontype:components(): {type}
 ```
 
@@ -1083,7 +1083,7 @@ Returns an array of the [unioned](about:blank/typecheck#union-types) types.
 
 #### Intersection `type` instance <a href="#intersection-type-instance" id="intersection-type-instance"></a>
 
-```
+```lua
 intersectiontype:components()
 ```
 
@@ -1091,43 +1091,43 @@ Returns an array of the [intersected](about:blank/typecheck#intersection-types) 
 
 #### Class `type` instance <a href="#class-type-instance" id="class-type-instance"></a>
 
-```
+```lua
 classtype:properties(): { [type]: { read: type?, write: type? } }
 ```
 
 Returns the properties of the class with their respective `read` and `write` types.
 
-```
+```lua
 classtype:readparent(): type?
 ```
 
 Returns the type of reading this class’ parent, or returns `nil` if the parent class doesn’t exist.
 
-```
+```lua
 classtype:writeparent(): type?
 ```
 
 Returns the type for writing to this class’ parent, or returns `nil` if the parent class doesn’t exist.
 
-```
+```lua
 classtype:metatable(): type?
 ```
 
 Returns the class’ metatable, or `nil` if it doesn’t exist.
 
-```
+```lua
 classtype:indexer(): { index: type, readresult: type, writeresult: type }?
 ```
 
 Returns the class’ indexer, or `nil` if it doesn’t exist.
 
-```
+```lua
 classtype:readindexer(): { index: type, result: type }?
 ```
 
 Returns result type of reading from the class via indexing, or `nil` if it doesn’t exist.
 
-```
+```lua
 classtype:writeindexer(): { index: type, result: type }?
 ```
 
