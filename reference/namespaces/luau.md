@@ -6,9 +6,9 @@
 
 ```lua
 function luau.compile(source: string, options: {
-    optimizationLevel: 0 | 1 | 2,
-    coverageLevel: 0 | 1 | 2,
-    debugLevel: 0 | 1 | 2
+    optimizationLevel: 0 | 1 | 2?,
+    coverageLevel: 0 | 1 | 2?,
+    debugLevel: 0 | 1 | 2?
 }): string
 ```
 
@@ -30,10 +30,15 @@ func()  -- Outputs: Hello, World!
 ### load
 
 ```lua
-function luau.load(bytecode: string, name: string?): function
+function luau.load(bytecode: string, options: {
+    debugName: string?,
+    environment: { [string]: any }?,
+    injectGlobals: boolean?,
+    codegenEnabled: boolean?
+}): (... any?) -> (... any?)
 ```
 
-Loads a function from the given Luau bytecode string. An error will be thrown if the bytecode is invalid or cannot be loaded. The optional `name` parameter can be used to specify the name of the chunk for debugging purposes.
+Loads a function from the given Luau bytecode string. An error will be thrown if the bytecode is invalid or cannot be loaded. Note that if `environment` is enabled, native code generation and optimizations are forcefully disabled.
 
 #### Example
 

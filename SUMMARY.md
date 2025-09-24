@@ -12,7 +12,7 @@
 
 * [Introduction](developer-guide/introduction/README.md)
   * [Environment](developer-guide/introduction/environment.md)
-  * [Key Concepts](developer-guide/introduction/key-concepts.md)
+  * [Optimization](developer-guide/introduction/key-concepts.md)
 
 ## Features
 
