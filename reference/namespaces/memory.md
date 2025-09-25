@@ -160,6 +160,10 @@ function memory.readbuffer(source: userdata, offset: number, size: number): buff
 
 Reads `size` bytes from the specified memory address or from the specified offset in the `userdata`, and returns a new `buffer` object containing those bytes.
 
+{% hint style="info" %}
+Note, that this function is extremely useful if you need to read multiple values at once, refer to [buffer.md](../../luau/library/buffer.md "mention")documentation to learn how to take advantage of this.
+{% endhint %}
+
 ### writebuffer
 
 ```lua
@@ -168,6 +172,10 @@ function memory.writebuffer(destination: userdata, offset: number, value: buffer
 ```
 
 Writes the bytes from the specified `buffer` object to the specified memory address or to the specified offset in the `userdata`.
+
+{% hint style="info" %}
+Note, that this function is extremely useful if you need to write multiple values at once, refer to [buffer.md](../../luau/library/buffer.md "mention")documentation to learn how to take advantage of this.
+{% endhint %}
 
 ### rtti
 
