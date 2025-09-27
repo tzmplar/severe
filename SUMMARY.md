@@ -38,6 +38,7 @@
 
 ## Reference
 
+* [Globals](reference/globals.md)
 * [Engine](reference/engine/README.md)
   * [Instance](reference/engine/instance.md)
   * [DataModel](reference/engine/datamodel.md)
@@ -52,12 +53,11 @@
   * [ValueBase](reference/engine/valuebase.md)
   * [MouseService](reference/engine/mouseservice.md)
 * [Namespaces](reference/namespaces/README.md)
+  * [task](reference/namespaces/task.md)
   * [crypt](reference/namespaces/crypt.md)
   * [Drawing](reference/namespaces/drawing.md)
   * [luau](reference/namespaces/luau.md)
   * [memory](reference/namespaces/memory.md)
-  * [shared](reference/namespaces/shared.md)
-  * [thread](reference/namespaces/thread.md)
 * [Classes](reference/classes/README.md)
   * [WebsocketClient](reference/classes/websocketclient.md)
   * [Signal](reference/classes/signal.md)
