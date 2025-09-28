@@ -68,6 +68,108 @@ function isfolder(path: string): boolean
 function isrbxactive(): boolean
 ```
 
+### isrightpressed
+
+```lua
+function isrightpressed(): boolean
+```
+
+### isleftpressed
+
+```lua
+function isleftpressed(): boolean
+```
+
+### smoothmouse\_exponential
+
+```lua
+function smoothmouse_exponential(origin: vector, target: vector, speed: number): ()
+```
+
+### smoothmouse\_linear
+
+```lua
+function smoothmouse_linear(origin: vector, target: vector, speed: number): ()
+```
+
+### mouse1press
+
+```lua
+function mouse1press(): ()
+```
+
+### mouse2press
+
+```lua
+function mouse2press(): ()
+```
+
+### mouse2click
+
+```lua
+function mouse2click(): ()
+```
+
+### mouse1click
+
+```lua
+function mouse1click(): ()
+```
+
+### keypress
+
+```lua
+function keypress(code: number): ()
+```
+
+### keyrelease
+
+```lua
+function keyrelease(code: number): ()
+```
+
+### getpressedkeys
+
+```lua
+function getpressedkeys(): { number }
+```
+
+### getpressedkey
+
+```lua
+function getpressedkey(): number
+```
+
+### setclipboard
+
+```lua
+function setclipboard(payload: string): ()
+```
+
+### getmouseposition
+
+```lua
+function getmouseposition(): vector
+```
+
+### send\_notification
+
+```lua
+function send_notification(content: string): ()
+```
+
+### queue\_on\_teleport
+
+```lua
+function queue_on_teleport(code: string): ()
+```
+
+### block\_roblox\_window
+
+```lua
+function block_roblox_window(state: boolean): ()
+```
+
 ## References
 
 ### game [datamodel.md](engine/datamodel.md "mention")
