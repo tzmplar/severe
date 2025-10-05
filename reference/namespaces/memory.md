@@ -1,8 +1,10 @@
 # memory
 
+## Overview
+
 Functions in the `memory` library allow direct low-level access to the client's memory.
 
-These functions are unsafe, and if used incorrectly can lead to crashes
+These functions are unsafe, and if used incorrectly can lead to corruption / crashes, you should also be careful and always strictly type-check the read & writes
 
 ## Functions
 

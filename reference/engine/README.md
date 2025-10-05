@@ -1,5 +1,9 @@
 # Engine
 
+## Overview
+
+This article, and its sub-pages document how to utilize the DataModel (aka `game` global) to interact with the game state, and hierarchy.
+
 ## Instance
 
 ### declare

@@ -12,6 +12,7 @@
 
 * [Introduction](developer-guide/introduction/README.md)
   * [Environment](developer-guide/introduction/environment.md)
+  * [Memory](developer-guide/introduction/memory.md)
 
 ## Features
 
@@ -52,16 +53,14 @@
   * [Humanoid](reference/engine/humanoid.md)
   * [ValueBase](reference/engine/valuebase.md)
   * [MouseService](reference/engine/mouseservice.md)
+  * [RunService](reference/engine/runservice.md)
 * [Namespaces](reference/namespaces/README.md)
   * [task](reference/namespaces/task.md)
   * [crypt](reference/namespaces/crypt.md)
-  * [Drawing](reference/namespaces/drawing.md)
+  * [Drawing](reference/namespaces/drawing/README.md)
+    * [DrawingImmediate](reference/namespaces/drawing/drawingimmediate.md)
   * [luau](reference/namespaces/luau.md)
   * [memory](reference/namespaces/memory.md)
 * [Classes](reference/classes/README.md)
   * [WebsocketClient](reference/classes/websocketclient.md)
   * [Signal](reference/classes/signal.md)
-
-***
-
-* [RunService](runservice.md)
