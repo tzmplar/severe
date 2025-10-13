@@ -110,3 +110,11 @@ function DrawingImmediate.OutlinedText(position: vector, size: number, color: Co
 ```lua
 function DrawingImmediate.Image(source: string, position: vector, size: vector, color: Color3, opacity: number, is_gif: boolean, rounding: number): ()
 ```
+
+### GetTextBounds
+
+```lua
+function DrawingImmediate.GetTextBounds(font: string, size: number, text: string): vector
+```
+
+Calculates the text boundaries based on the provided `font`, `size`, and `text`. Returns a 2-dimensional vector.

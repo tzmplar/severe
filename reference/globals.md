@@ -32,11 +32,34 @@ function delfile(path: string): ()
 function writefile(path: string, content: string): ()
 ```
 
+Whitelisted extensions are: `.lua`, `.txt`, `.md`, `.png`, `.dds`, `.bin`, `.gif`, `.jpg`.
+
 ### isfile
 
 ```lua
 function isfile(path: string): boolean
 ```
+
+### loadfile
+
+```lua
+function loadfile(path: string): (... any) -> (... any)?
+```
+
+Reads the file contents, and interprets it as Luau source-code. This is directly similar to:\
+
+
+```lua
+loadstring(readfile("my_file.lua"))
+```
+
+### dofile
+
+```lua
+function dofile(path: string): ()
+```
+
+Similar to `loadfile`, however instead of returning a callback, it directly calls it.
 
 ### readfile
 
