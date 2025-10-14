@@ -10,14 +10,26 @@ The speed of this event matches the render frequency of the overlay. It is not r
 
 This event is primarily used for [drawingimmediate.md](../namespaces/drawing/drawingimmediate.md "mention").
 
-### PreLocal
+### Local
 
-### PostLocal
+This refers to a group of events which are synchronized to match the update frequency of "Local" within the overlay.
 
-### PreModel
+#### PreLocal
 
-### PostModel
+#### PostLocal
 
-### PreData
+### Model
 
-### PostData
+This refers to a group of events which are synchronized to match "Model" updates within the overlay. This is perfect for `GetChildren` calls.
+
+#### PreModel
+
+#### PostModel
+
+### Data
+
+Group of events which are synchronized for the "Data" updates within the overlay, perfect for storing physics data.
+
+#### PreData
+
+#### PostData
