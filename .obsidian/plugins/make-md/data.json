@@ -46,10 +46,14 @@
     "//Tags",
     "//Tags",
     "//Tags",
-    "/",
-    "//Reference",
     "//Reference/Reference/Drawing",
-    "//Reference/Reference/Classes"
+    "//Reference/Reference/Classes",
+    "/",
+    "//features",
+    "//introduction",
+    "//introduction/introduction/getting-started",
+    "//luau",
+    "//Reference/Reference/namespaces"
   ],
   "expandFolderOnClick": true,
   "spacesFolder": "Tags",

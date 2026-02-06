@@ -13,10 +13,10 @@
             "state": {
               "type": "mk-space",
               "state": {
-                "path": "Reference/Classes"
+                "path": "Tags"
               },
               "icon": "lucide-file",
-              "title": "Classes"
+              "title": "Tags"
             }
           }
         ]
@@ -192,41 +192,43 @@
       "bases:Create new base": false
     }
   },
-  "active": "3eb410461477e8f8",
+  "active": "3409f1c9f704d962",
   "lastOpenFiles": [
-    "Reference/Enumerations.md",
-    "Reference/Drawing/Classes/Polyline.md",
-    "Reference/Drawing/Classes/Image.md",
-    "Reference/Drawing/Classes/Circle.md",
-    "Reference/Drawing/Classes/Text.md",
-    "Reference/Drawing/Classes/Square.md",
-    "Reference/Drawing/Classes/Triangle.md",
-    "Reference/Drawing/Classes",
-    "Glossary.md",
-    "Reference/Core/Reflection.md",
-    "Reference/Core/Input.md",
-    "Tags",
-    "Reference/Core/Miscellaneous.md",
-    "Reference/Core/File System.md",
-    "Installation.md",
-    "Landing.md",
-    "Reference/Classes/WebsocketClient.md",
-    "Reference/Classes/Vector2.md",
-    "Reference/Classes/Vector3.md",
-    "Reference/Classes/Color3.md",
-    "Reference/Classes/CFrame.md",
-    "Reference/Classes/Signal.md",
-    "Reference/Drawing/Immediate.md",
-    "Reference/Drawing/Static.md",
-    "Reference/Drawing/Dynamic.md",
-    "Reference/Libraries/luau.md",
-    "Reference/Libraries/task.md",
-    "Reference/Libraries/crypt.md",
-    "Reference/Libraries",
-    "Reference/Classes",
-    "Reference/Drawing",
-    "Reference/World",
-    "Reference/Core",
-    "Reference"
+    "New Text Document.txt",
+    "luau/performance.md",
+    "Reference/namespaces/drawing/README.md",
+    "Reference/namespaces/drawing/drawingimmediate.md",
+    "Reference/namespaces/task.md",
+    "Reference/namespaces/README.md",
+    "Reference/namespaces/luau.md",
+    "Reference/namespaces/memory.md",
+    "Reference/namespaces/drawing",
+    "Reference/namespaces/crypt.md",
+    "Reference/namespaces",
+    "Reference/engine/workspace.md",
+    "Reference/engine/runservice.md",
+    "Reference/engine/valuebase.md",
+    "Reference/engine/README.md",
+    "Reference/engine/players.md",
+    "Reference/engine/player.md",
+    "Reference/engine/instance.md",
+    "Reference/engine/mouseservice.md",
+    "Reference/engine/model.md",
+    "Reference/engine/datamodel.md",
+    "Reference/engine/humanoid.md",
+    "Reference/engine/camera.md",
+    "Reference/engine/billboardgui.md",
+    "Reference/engine/basepart.md",
+    "Reference/engine",
+    "luau/library/utf8.md",
+    "luau/library/vector.md",
+    "luau/library/table.md",
+    "luau/library",
+    "luau",
+    "introduction/getting-started",
+    "introduction",
+    "features",
+    "developer-guide/introduction",
+    "developer-guide"
   ]
 }
