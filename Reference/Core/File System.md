@@ -15,7 +15,7 @@ function dofile(path: string): (... any)
 
 ### Description
 
-Effectively `loadstring(readfile(path))()`. Loads and executes a Lua file, returning any values the file returns.
+Effectively `loadstring(readfile(path))()`. Loads and executes a luau file, returning any values the file returns.
 
 ***
 
@@ -34,7 +34,7 @@ function loadfile(path: string): (... any)
 
 ### Description
 
-Loads a Lua file and returns it as a function. Call the returned function to execute the file's code.
+Loads a luau file and returns it as a function. Call the returned function to execute the file's code.
 
 ***
 
@@ -42,7 +42,7 @@ Loads a Lua file and returns it as a function. Call the returned function to exe
 
 ### Definition
 
-```lua
+```luau
 function writefile(path: string, content: string): ()
 ```
 
@@ -56,7 +56,7 @@ Overrides/creates a file at `path` with specified content.
 
 ### Definition
 
-```lua
+```luau
 function isfile(path: string): boolean
 ```
 
@@ -75,7 +75,7 @@ Validates the existence of a file at `path`, returns a boolean.
 
 ### Definition
 
-```lua
+```luau
 function isfolder(path: string): boolean
 ```
 
@@ -94,7 +94,7 @@ Validates the existence of a folder at `path`, returns a boolean.
 
 ### Definition
 
-```lua
+```luau
 function readfile(path: string): string
 ```
 
@@ -113,7 +113,7 @@ Returns the contents of a file at `path` as a string.
 
 ### Definition
 
-```lua
+```luau
 function listfiles(path: string): { string }
 ```
 
@@ -132,7 +132,7 @@ Returns an array of all files and folders at `path`.
 
 ### Definition
 
-```lua
+```luau
 function makefolder(path: string): ()
 ```
 
@@ -146,7 +146,7 @@ Creates a new folder at `path`.
 
 ### Definition
 
-```lua
+```luau
 function delfolder(path: string): ()
 ```
 
