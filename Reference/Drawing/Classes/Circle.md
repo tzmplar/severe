@@ -1,77 +1,93 @@
-# Definition
-```lua
+# Circle
+
+## Definition
+
+```luau
 local Circle = Circle.new() -- Or, Drawing.new("Circle")
 ```
-# Properties
 
-## Visible
-```lua
+## Properties
+
+### Visible
+
+```luau
 Circle.Visible: boolean
 ```
 
----
+***
 
-## Color
-```lua
+### Color
+
+```luau
 Circle.Color: Color3
 ```
 
----
+***
 
-## ZIndex
-```lua
+### ZIndex
+
+```luau
 Circle.ZIndex: number
 ```
+
 Range `[-2147483647, 2147483647]`.
 
----
+***
 
-## Opacity
-```lua
+### Opacity
+
+```luau
 Circle.Opacity: number
 ```
 
----
+***
 
-## Thickness
-```lua
+### Thickness
+
+```luau
 Circle.Thickness: number
 ```
 
----
+***
 
-## NumSides
-```lua
+### NumSides
+
+```luau
 Circle.NumSides: number
 ```
 
----
+***
 
-## Radius
-```lua
+### Radius
+
+```luau
 Circle.Radius: number
 ```
 
----
+***
 
-## Filled
-```lua
+### Filled
+
+```luau
 Circle.Filled: boolean
 ```
 
----
+***
 
-## Position
-```lua
+### Position
+
+```luau
 Circle.Position: Vector2
 ```
 
----
+***
 
-# Methods
+## Methods
 
-## Remove
-```lua
+### Remove
+
+```luau
 Circle:Remove(): ()
 ```
+
 Permanently removes the drawing object.
