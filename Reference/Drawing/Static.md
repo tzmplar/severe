@@ -6,7 +6,7 @@
 
 #### Definition
 
-```lua
+```luau
 function Drawing.new(class: string): userdata
 ```
 
@@ -26,7 +26,7 @@ Will create a new static drawing on the screen, it's retained, meaning you will 
 
 #### Definition
 
-```lua
+```luau
 function Drawing.clear(): ()
 ```
 
