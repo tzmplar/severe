@@ -1,26 +1,26 @@
 # Definition
-```lua
+```luau
 local Triangle = Triangle.new() -- Or, Drawing.new("Triangle")
 ```
 
 # Properties
 
 ## Visible
-```lua
+```luau
 Triangle.Visible: boolean
 ```
 
 ---
 
 ## Color
-```lua
+```luau
 Triangle.Color: Color3
 ```
 
 ---
 
 ## ZIndex
-```lua
+```luau
 Triangle.ZIndex: number
 ```
 Range `[-2147483647, 2147483647]`.
@@ -28,49 +28,49 @@ Range `[-2147483647, 2147483647]`.
 ---
 
 ## Opacity
-```lua
+```luau
 Triangle.Opacity: number
 ```
 
 ---
 
 ## Transparency
-```lua
+```luau
 Triangle.Transparency: number
 ```
 
 ---
 
 ## Thickness
-```lua
+```luau
 Triangle.Thickness: number
 ```
 
 ---
 
 ## PointA
-```lua
+```luau
 Triangle.PointA: Vector2
 ```
 
 ---
 
 ## PointB
-```lua
+```luau
 Triangle.PointB: Vector2
 ```
 
 ---
 
 ## PointC
-```lua
+```luau
 Triangle.PointC: Vector2
 ```
 
 ---
 
 ## Filled
-```lua
+```luau
 Triangle.Filled: boolean
 ```
 
@@ -79,7 +79,7 @@ Triangle.Filled: boolean
 # Methods
 
 ## Remove
-```lua
+```luau
 Triangle:Remove(): ()
 ```
 Permanently removes the drawing object.
