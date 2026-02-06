@@ -1,0 +1,21 @@
+{
+  "style": {
+    "themeAware": true,
+    "dividerColor": "#6aa9ff",
+    "dividerThickness": 4,
+    "dividerOpacity": 0.85,
+    "dividerStyle": "solid",
+    "blockBgColor": "#2b2b2b",
+    "blockTextColor": "#e0e0e0",
+    "titleTextColor": "#7aa2ff",
+    "alternatingShading": false,
+    "showBorders": false,
+    "borderRadius": 4,
+    "borderThickness": 2,
+    "blockPadding": 12,
+    "blockGap": 0,
+    "showToolbar": false,
+    "dividerHoverColor": "#8bbdff",
+    "dragActiveShadow": "rgba(0,0,0,0.08)"
+  }
+}

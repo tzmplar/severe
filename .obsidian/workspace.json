@@ -1,0 +1,232 @@
+{
+  "main": {
+    "id": "0ffd67f673cba4b4",
+    "type": "split",
+    "children": [
+      {
+        "id": "5581c16707f41bb8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "3eb410461477e8f8",
+            "type": "leaf",
+            "state": {
+              "type": "mk-space",
+              "state": {
+                "path": "Reference/Classes"
+              },
+              "icon": "lucide-file",
+              "title": "Classes"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0b01186eee5ba92f",
+    "type": "split",
+    "children": [
+      {
+        "id": "b41e1616ff9558ca",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "735bbb5a7bf597cd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "a518cdcbc82cd8d9",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "68e3e607e77823ad",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          },
+          {
+            "id": "3409f1c9f704d962",
+            "type": "leaf",
+            "state": {
+              "type": "mk-path-view",
+              "state": {},
+              "icon": "layout-grid",
+              "title": "Navigator"
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a79666c7e864ec1f",
+    "type": "split",
+    "children": [
+      {
+        "id": "3730e9602004f38c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9347e0b0999618d6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Reference/Core/Reflection.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Reflection"
+            }
+          },
+          {
+            "id": "3a242f6f9ca93d01",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Reference/Core/Reflection.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Reflection"
+            }
+          },
+          {
+            "id": "af9e4e758b825f27",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "b4b62696925d76e2",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "6b04ad4da129b472",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Reference/Core/Reflection.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Reflection"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "3eb410461477e8f8",
+  "lastOpenFiles": [
+    "Reference/Enumerations.md",
+    "Reference/Drawing/Classes/Polyline.md",
+    "Reference/Drawing/Classes/Image.md",
+    "Reference/Drawing/Classes/Circle.md",
+    "Reference/Drawing/Classes/Text.md",
+    "Reference/Drawing/Classes/Square.md",
+    "Reference/Drawing/Classes/Triangle.md",
+    "Reference/Drawing/Classes",
+    "Glossary.md",
+    "Reference/Core/Reflection.md",
+    "Reference/Core/Input.md",
+    "Tags",
+    "Reference/Core/Miscellaneous.md",
+    "Reference/Core/File System.md",
+    "Installation.md",
+    "Landing.md",
+    "Reference/Classes/WebsocketClient.md",
+    "Reference/Classes/Vector2.md",
+    "Reference/Classes/Vector3.md",
+    "Reference/Classes/Color3.md",
+    "Reference/Classes/CFrame.md",
+    "Reference/Classes/Signal.md",
+    "Reference/Drawing/Immediate.md",
+    "Reference/Drawing/Static.md",
+    "Reference/Drawing/Dynamic.md",
+    "Reference/Libraries/luau.md",
+    "Reference/Libraries/task.md",
+    "Reference/Libraries/crypt.md",
+    "Reference/Libraries",
+    "Reference/Classes",
+    "Reference/Drawing",
+    "Reference/World",
+    "Reference/Core",
+    "Reference"
+  ]
+}

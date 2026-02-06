@@ -1,0 +1,24 @@
+/* Resizes the checkbox box */
+input.task-list-item-checkbox {
+    height: 12px !important;
+    width: 12px !important;
+    vertical-align: middle;
+    position: relative;
+}
+
+/* Resizes and centers the actual checkmark icon */
+input.task-list-item-checkbox:checked::after {
+    width: 8px !important; /* Smaller than the 14px box */
+    height: 8px !important;
+    
+    /* Forces centering within the 14px parent */
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    
+    /* Ensures the mask/icon scales to the new 10px size */
+    background-color: var(--checkbox-marker-color);
+    mask-size: contain !important;
+    -webkit-mask-size: contain !important;
+}

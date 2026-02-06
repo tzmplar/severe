@@ -1,0 +1,9 @@
+{
+  "Appearance-dark@@theme-dark-style-select": "theme-dark-background-darker",
+  "Mobile@@drawer-phone-full-width": false,
+  "baseline-style@@color-scheme-dark": "notion-dark",
+  "fusion@@theme-variant": "fusion-default",
+  "baseline-style@@accented-interface": true,
+  "baseline-style@@color-scheme-accent": true,
+  "baseline-style@@background-contrast-dark": "contrast-dark"
+}

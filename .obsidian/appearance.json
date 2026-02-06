@@ -1,0 +1,11 @@
+{
+  "cssTheme": "Baseline",
+  "accentColor": "#5767a1",
+  "baseFontSize": 13,
+  "enabledCssSnippets": [
+    "checkbox"
+  ],
+  "interfaceFontFamily": "Cascadia Code",
+  "textFontFamily": "Cascadia Code",
+  "monospaceFontFamily": "Cascadia Code"
+}
