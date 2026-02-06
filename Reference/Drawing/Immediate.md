@@ -6,7 +6,7 @@ Traditional drawing uses **retained mode**—objects persist until removed. **Dr
 
 ## Examples
 
-```lua
+```luau
 local Players = game:GetService("Players")
 local CurrentCamera = workspace.CurrentCamera
 local RunService = game:GetService("RunService")
@@ -34,7 +34,7 @@ Call inside `RunService.Render` to avoid flickering. No return values.
 
 ### Line
 
-```lua
+```luau
 function DrawingImmediate.Line(a: Vector2, b: Vector2, color: Color3, opacity: number, segments: number, thickness: number): ()
 ```
 
@@ -51,7 +51,7 @@ function DrawingImmediate.Line(a: Vector2, b: Vector2, color: Color3, opacity: n
 
 ### Circle
 
-```lua
+```luau
 function DrawingImmediate.Circle(position: Vector2, radius: number, color: Color3, opacity: number, thickness: number): ()
 ```
 
@@ -67,7 +67,7 @@ function DrawingImmediate.Circle(position: Vector2, radius: number, color: Color
 
 ### FilledCircle
 
-```lua
+```luau
 function DrawingImmediate.FilledCircle(position: Vector2, radius: number, color: Color3, opacity: number): ()
 ```
 
@@ -82,7 +82,7 @@ function DrawingImmediate.FilledCircle(position: Vector2, radius: number, color:
 
 ### Triangle
 
-```lua
+```luau
 function DrawingImmediate.Triangle(a: Vector2, b: Vector2, c: Vector2, color: Color3, opacity: number, thickness: number): ()
 ```
 
@@ -99,7 +99,7 @@ function DrawingImmediate.Triangle(a: Vector2, b: Vector2, c: Vector2, color: Co
 
 ### FilledTriangle
 
-```lua
+```luau
 function DrawingImmediate.FilledTriangle(a: Vector2, b: Vector2, c: Vector2, color: Color3, opacity: number): ()
 ```
 
@@ -115,7 +115,7 @@ function DrawingImmediate.FilledTriangle(a: Vector2, b: Vector2, c: Vector2, col
 
 ### Rectangle
 
-```lua
+```luau
 function DrawingImmediate.Rectangle(position: Vector2, size: Vector2, color: Color3, opacity: number, thickness: number): ()
 ```
 
@@ -131,7 +131,7 @@ function DrawingImmediate.Rectangle(position: Vector2, size: Vector2, color: Col
 
 ### FilledRectangle
 
-```lua
+```luau
 function DrawingImmediate.FilledRectangle(position: Vector2, size: Vector2, color: Color3, opacity: number): ()
 ```
 
@@ -146,7 +146,7 @@ function DrawingImmediate.FilledRectangle(position: Vector2, size: Vector2, colo
 
 ### Quad
 
-```lua
+```luau
 function DrawingImmediate.Quad(a: Vector2, b: Vector2, c: Vector2, d: Vector2, color: Color3, opacity: number, thickness: number): ()
 ```
 
@@ -164,7 +164,7 @@ function DrawingImmediate.Quad(a: Vector2, b: Vector2, c: Vector2, d: Vector2, c
 
 ### FilledQuad
 
-```lua
+```luau
 function DrawingImmediate.FilledQuad(a: Vector2, b: Vector2, c: Vector2, d: Vector2, color: Color3, opacity: number): ()
 ```
 
@@ -181,7 +181,7 @@ function DrawingImmediate.FilledQuad(a: Vector2, b: Vector2, c: Vector2, d: Vect
 
 ### Polyline
 
-```lua
+```luau
 function DrawingImmediate.Polyline(points: { Vector2 }, color: Color3, opacity: number, thickness: number): ()
 ```
 
@@ -196,7 +196,7 @@ function DrawingImmediate.Polyline(points: { Vector2 }, color: Color3, opacity: 
 
 ### Text
 
-```lua
+```luau
 function DrawingImmediate.Text(position: Vector2, size: number, color: Color3, opacity: number, text: string, center: boolean, font: string?): ()
 ```
 
@@ -214,7 +214,7 @@ function DrawingImmediate.Text(position: Vector2, size: number, color: Color3, o
 
 ### OutlinedText
 
-```lua
+```luau
 function DrawingImmediate.OutlinedText(position: Vector2, size: number, color: Color3, opacity: number, text: string, center: boolean, font: string?): ()
 ```
 
@@ -232,7 +232,7 @@ function DrawingImmediate.OutlinedText(position: Vector2, size: number, color: C
 
 ### Image
 
-```lua
+```luau
 function DrawingImmediate.Image(source: string, position: Vector2, size: Vector2, color: Color3, opacity: number, is_gif: boolean, rounding: number): ()
 ```
 
@@ -250,7 +250,7 @@ function DrawingImmediate.Image(source: string, position: Vector2, size: Vector2
 
 ### GetTextBounds
 
-```lua
+```luau
 function DrawingImmediate.GetTextBounds(font: string, size: number, text: string): Vector2
 ```
 
