@@ -65,7 +65,7 @@ This will essentially copy the string to your system's clipboard.
 
 ### Code Samples
 
-```lua
+```luau
 setclipboard 'Clipboard!'
 ```
 
@@ -116,7 +116,7 @@ This is a useful function that you'll find yourself utilizing when interacting w
 
 ### Code Samples
 
-```lua
+```luau
 -- Find the DataModel by reading Workspace's parent offset, and then recasting it back to userdata.
 local Parent = memory.readu64(workspace, 0x50)
 local DataModel = pointer_to_userdata(Parent)
@@ -206,7 +206,7 @@ Returns a boolean (true/false) based if the player has **Team Check** on in thei
 
 ### Definition
 
-```lua
+```luau
 function add_model_data(data: table, key: string): boolean
 ```
 
@@ -228,7 +228,7 @@ Declares a new character model data under the given key for use in targeting and
 
 ### Code Samples
 
-```lua
+```luau
 local data = {
     Username = "Player1",
     Displayname = "CoolPlayer",
@@ -246,7 +246,7 @@ add_model_data(data, "player1_key")
 
 ### Definition
 
-```lua
+```luau
 function edit_model_data(data: table, key: string): boolean
 ```
 
@@ -268,7 +268,7 @@ Updates specific fields in existing model data stored under the key. Efficient f
 
 ### Code Samples
 
-```lua
+```luau
 local edit = {
     Health = 50,
     Aimbot_Part = workspace.Player1.Character.Head
@@ -282,7 +282,7 @@ edit_model_data(edit, "player1_key")
 
 ### Definition
 
-```lua
+```luau
 function remove_model_data(key: string): boolean
 ```
 
@@ -307,7 +307,7 @@ Deletes specific model data by key. Returns `true` on success.
 
 ### Definition
 
-```lua
+```luau
 function clear_model_data(): boolean
 ```
 
@@ -326,7 +326,7 @@ Removes all stored model data. Returns `true` on success.
 
 ### Definition
 
-```lua
+```luau
 function override_local_data(data: table): boolean
 ```
 
@@ -347,7 +347,7 @@ Sets or overrides local player data for UI rendering and local thread processing
 
 ### Code Samples
 
-```lua
+```luau
 local data = {
     LocalPlayer = game.Players.LocalPlayer,
     Character = game.Players.LocalPlayer.Character,
@@ -362,7 +362,7 @@ override_local_data(data)
 
 ### Definition
 
-```lua
+```luau
 function clear_local_data(): boolean
 ```
 
@@ -379,7 +379,7 @@ Clears all local player data. Returns `true` on success.
 
 ### Definition
 
-```lua
+```luau
 function ismenuopened(): boolean
 ```
 
