@@ -2,7 +2,7 @@
 
 ## keypress
 ### Definition
-```lua
+```luau
 function keypress(keycode: number): ()
 ```
 ### Parameters
@@ -20,7 +20,7 @@ Simulates a key press for the given virtual keycode.
 
 ## keyrelease
 ### Definition
-```lua
+```luau
 function keyrelease(keycode: number): ()
 ```
 ### Parameters
@@ -36,7 +36,7 @@ Simulates a key release for the given virtual keycode.
 
 ## getpressedkey
 ### Definition
-```lua
+```luau
 function getpressedkey(): string
 ```
 ### Returns
@@ -50,7 +50,7 @@ Returns the name of the last pressed key.
 
 ## getpressedkeys
 ### Definition
-```lua
+```luau
 function getpressedkeys(): { string }
 ```
 ### Returns
@@ -64,7 +64,7 @@ Returns an array of currently pressed key names.
 
 ## isleftclicked
 ### Definition
-```lua
+```luau
 function isleftclicked(): boolean
 ```
 ### Returns
@@ -78,7 +78,7 @@ Returns `true` if left mouse button was clicked.
 
 ## isrightclicked
 ### Definition
-```lua
+```luau
 function isrightclicked(): boolean
 ```
 ### Returns
@@ -92,7 +92,7 @@ Returns `true` if right mouse button was clicked.
 
 ## isleftpressed
 ### Definition
-```lua
+```luau
 function isleftpressed(): boolean
 ```
 ### Returns
@@ -106,7 +106,7 @@ Returns `true` if left mouse button is held down.
 
 ## isrightpressed
 ### Definition
-```lua
+```luau
 function isrightpressed(): boolean
 ```
 ### Returns
@@ -120,7 +120,7 @@ Returns `true` if right mouse button is held down.
 
 ## mousemoverel
 ### Definition
-```lua
+```luau
 function mousemoverel(x: number, y: number): ()
 ```
 ### Parameters
@@ -137,7 +137,7 @@ Moves mouse by relative X/Y coordinates.
 
 ## mousemoveabs
 ### Definition
-```lua
+```luau
 function mousemoveabs(x: number, y: number): ()
 ```
 ### Parameters
@@ -154,7 +154,7 @@ Moves mouse to absolute X/Y screen coordinates.
 
 ## mousescroll
 ### Definition
-```lua
+```luau
 function mousescroll(pixels: number): ()
 ```
 ### Parameters
@@ -170,7 +170,7 @@ Scrolls mouse wheel by specified pixels.
 
 ## mouse1click
 ### Definition
-```lua
+```luau
 function mouse1click(): ()
 ```
 ### Description
@@ -180,7 +180,7 @@ Simulates a left mouse button click.
 
 ## mouse1press
 ### Definition
-```lua
+```luau
 function mouse1press(): ()
 ```
 ### Description
@@ -190,7 +190,7 @@ Simulates a left mouse button press (hold).
 
 ## mouse1release
 ### Definition
-```lua
+```luau
 function mouse1release(): ()
 ```
 ### Description
@@ -200,7 +200,7 @@ Simulates a left mouse button release.
 
 ## mouse2click
 ### Definition
-```lua
+```luau
 function mouse2click(): ()
 ```
 ### Description
@@ -210,7 +210,7 @@ Simulates a right mouse button click.
 
 ## mouse2press
 ### Definition
-```lua
+```luau
 function mouse2press(): ()
 ```
 ### Description
@@ -220,7 +220,7 @@ Simulates a right mouse button press (hold).
 
 ## mouse2release
 ### Definition
-```lua
+```luau
 function mouse2release(): ()
 ```
 ### Description
