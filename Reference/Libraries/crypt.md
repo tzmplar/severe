@@ -779,14 +779,14 @@ Derives a key using HKDF (HMAC-based Key Derivation Function) with SHA-256.
 ### Definition
 
 ```luau
-function crypt.json.encode(table: table): string
+function crypt.json.encode(data: table): string
 ```
 
 ### Parameters
 
-| Name  | Type  | Description           |
-| ----- | ----- | --------------------- |
-| table | table | The table to encode   |
+| Name | Type  | Description           |
+| ---- | ----- | --------------------- |
+| data | table | The table to encode   |
 
 ### Returns
 
@@ -805,14 +805,14 @@ Encodes a Luau table to a JSON string.
 ### Definition
 
 ```luau
-function crypt.json.decode(string: string): table
+function crypt.json.decode(json: string): table
 ```
 
 ### Parameters
 
-| Name   | Type   | Description           |
-| ------ | ------ | --------------------- |
-| string | string | The JSON string       |
+| Name | Type   | Description     |
+| ---- | ------ | --------------- |
+| json | string | The JSON string |
 
 ### Returns
 
