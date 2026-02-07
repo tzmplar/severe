@@ -1,25 +1,25 @@
 # Definition
-```lua
+```luau
 local Polyline = Polyline.new() -- Or, Drawing.new("Polyline")
 ```
 # Properties
 
 ## Visible
-```lua
+```luau
 Polyline.Visible: boolean
 ```
 
 ---
 
 ## Color
-```lua
+```luau
 Polyline.Color: Color3
 ```
 
 ---
 
 ## ZIndex
-```lua
+```luau
 Polyline.ZIndex: number
 ```
 Range `[-2147483647, 2147483647]`.
@@ -27,14 +27,14 @@ Range `[-2147483647, 2147483647]`.
 ---
 
 ## Opacity
-```lua
+```luau
 Polyline.Opacity: number
 ```
 
 ---
 
 ## Points
-```lua
+```luau
 Polyline.Points: { Vector2 }
 ```
 An array of Vector2 points that make up the polyline.
@@ -42,14 +42,14 @@ An array of Vector2 points that make up the polyline.
 ---
 
 ## Thickness
-```lua
+```luau
 Polyline.Thickness: number
 ```
 
 ---
 
 ## Filled
-```lua
+```luau
 Polyline.Filled: boolean
 ```
 
@@ -58,7 +58,7 @@ Polyline.Filled: boolean
 # Methods
 
 ## Remove
-```lua
+```luau
 Polyline:Remove(): ()
 ```
 Permanently removes the drawing object.

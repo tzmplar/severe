@@ -1,87 +1,88 @@
 # Definition
-```lua
+```luau
 local Text = Text.new() -- Or, Drawing.new("Text")
 ```
 # Properties
 
 ## Visible
-```lua
+```luau
 Text.Visible: boolean
 ```
 
 ---
 ## Color
-```lua
+```luau
 Text.Color: Color3
 ```
 
 ---
 ## ZIndex
-```lua
+```luau
 Text.ZIndex: number
 ```
 Range `[-2147483647, 2147483647]`.
 
 ---
 ## Opacity
-```lua
+```luau
 Text.Opacity: number
 ```
 
 ---
 ## Text
-```lua
+```luau
 Text.Text: string
 ```
 
 ---
 
 ## Size
-```lua
+```luau
 Text.Size: number
 ```
 
 ---
 ## Center
-```lua
+```luau
 Text.Center: boolean
 ```
 
 ---
 ## Outline
-```lua
+```luau
 Text.Outline: boolean
 ```
 
 ---
 ## OutlineColor
-```lua
+```luau
 Text.OutlineColor: Vector3
 ```
 
 ---
 ## Position
-```lua
+```luau
 Text.Position: Vector2
 ```
 
 ---
 ## TextBounds
-```lua
+```luau
 Text.TextBounds: Vector2
 ```
 
 ---
 ## Font
-```lua
+```luau
 Text.Font: number
 ```
 Range `[0, 31]`.
 
 ---
 # Methods
-#### Remove
-```lua
+
+## Remove
+```luau
 Text:Remove(): ()
 ```
 Permanently removes the drawing object.

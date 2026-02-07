@@ -16,7 +16,7 @@
 
 ## read[type]
 ### Definition
-```lua
+```luau
 function memory.read[type](address: number): number
 function memory.read[type](source: userdata, offset: number): number
 ```
@@ -28,7 +28,7 @@ Note that [type] has to be replaced with a valid type that can be found above. V
 
 ## memory.write[type]
 ### Definition
-```lua
+```luau
 function memory.write[type](address: number, value: number): ()
 function memory.write[type](destination: userdata, offset: number, value: number): ()
 ```
@@ -40,7 +40,7 @@ Note that [type] has to be replaced with a valid type that can be found above. V
 
 ## memory.readbits
 ### Definition
-```lua
+```luau
 function memory.readbits(address: number, bitOffset: number, bitSize: number): number
 function memory.readbits(source: userdata, offset: number, bitOffset: number, bitSize: number): number
 ```
@@ -51,7 +51,7 @@ Reads a range of bits (up to 32) from the target, starting at `bitOffset`.
 
 ## memory.writebits
 ### Definition
-```lua
+```luau
 function memory.writebits(address: number, bitOffset: number, bitSize: number, value: number): ()
 function memory.writebits(destination: userdata, offset: number, bitOffset: number, bitSize: number, value: number): ()
 ```
@@ -62,7 +62,7 @@ Writes a range of bits (up to 32) from `value` to the destination at `bitOffset`
 
 ## memory.readstring
 ### Definition
-```lua
+```luau
 function memory.readstring(address: number): string
 function memory.readstring(source: userdata, offset: number): string
 ```
@@ -73,7 +73,7 @@ Reads a raw null-terminated string or byte sequence from the target location.
 
 ## memory.writestring
 ### Definition
-```lua
+```luau
 function memory.writestring(address: number, value: string): ()
 function memory.writestring(destination: userdata, offset: number, value: string): ()
 ```
@@ -84,7 +84,7 @@ Writes the raw bytes of a string to the specified memory location.
 
 ## memory.readvector
 ### Definition
-```lua
+```luau
 function memory.readvector(address: number): vector
 function memory.readvector(source: userdata, offset: number): vector
 ```
@@ -95,7 +95,7 @@ Reads a 3-dimensional vector from memory.
 
 ## memory.writevector
 ### Definition
-```lua
+```luau
 function memory.writevector(address: number, value: vector): ()
 function memory.writevector(destination: userdata, offset: number, value: vector): ()
 ```
@@ -106,7 +106,7 @@ Writes a 3-dimensional vector to the target memory location.
 
 ## memory.readbuffer
 ### Definition
-```lua
+```luau
 function memory.readbuffer(address: number, size: number): buffer
 function memory.readbuffer(source: userdata, offset: number, size: number): buffer
 ```
@@ -117,7 +117,7 @@ Reads `size` bytes into a new Luau `buffer`. Highly efficient for bulk data extr
 
 ## memory.writebuffer
 ### Definition
-```lua
+```luau
 function memory.writebuffer(address: number, value: buffer): ()
 function memory.writebuffer(destination: userdata, offset: number, value: buffer): ()
 ```
@@ -128,7 +128,7 @@ Writes the contents of a Luau `buffer` directly to the specified memory location
 
 ## memory.rtti
 ### Definition
-```lua
+```luau
 function memory.rtti(address: number): string?
 function memory.rtti(source: userdata, offset: number): string?
 ```
@@ -139,7 +139,7 @@ Retrieves the **Run-Time Type Information** name from the target address. Return
 
 ## memory.changed
 ### Definition
-```lua
+```luau
 function memory.changed(address: number, type: string, callback: (self: userdata, new: any, old: any) -> (), iterations: number?): userdata
 function memory.changed(source: userdata, offset: number, type: string, callback: (self: userdata, new: any, old: any) -> (), iterations: number?): userdata
 ```
@@ -150,7 +150,7 @@ Available types: `i8`, `u8`, `i16`, `u16`, `i32`, `u32`, `i64`, `u64`, `f32`, `f
 # Properties
 ## memory.base
 ### Definition
-```lua
+```luau
 memory.base: number
 ```
 ### Description

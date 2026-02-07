@@ -1,25 +1,25 @@
 # Definition
-```lua
+```luau
 local Image = Image.new() -- Or, Drawing.new("Image")
 ```
 # Properties
 
 ## Visible
-```lua
+```luau
 Image.Visible: boolean
 ```
 
 ---
 
 ## Color
-```lua
+```luau
 Image.Color: Color3
 ```
 
 ---
 
 ## ZIndex
-```lua
+```luau
 Image.ZIndex: number
 ```
 Range `[-2147483647, 2147483647]`.
@@ -27,63 +27,63 @@ Range `[-2147483647, 2147483647]`.
 ---
 
 ## Opacity
-```lua
+```luau
 Image.Opacity: number
 ```
 
 ---
 
 ## Url
-```lua
+```luau
 Image.Url: string
 ```
 
 ---
 
 ## Data
-```lua
+```luau
 Image.Data: string
 ```
 
 ---
 
 ## Gif
-```lua
+```luau
 Image.Gif: boolean
 ```
 
 ---
 
 ## Delay
-```lua
+```luau
 Image.Delay: number
 ```
 
 ---
 
 ## Position
-```lua
+```luau
 Image.Position: Vector2
 ```
 
 ---
 
 ## Size
-```lua
+```luau
 Image.Size: Vector2
 ```
 
 ---
 
 ## Rounding
-```lua
+```luau
 Image.Rounding: number
 ```
 
 ---
 
 ## ImageSize
-```lua
+```luau
 Image.ImageSize: Vector2
 ```
 
@@ -92,7 +92,7 @@ Image.ImageSize: Vector2
 # Methods
 
 ## Remove
-```lua
+```luau
 Image:Remove(): ()
 ```
 Permanently removes the drawing object.

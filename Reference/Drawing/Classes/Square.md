@@ -1,25 +1,25 @@
 # Definition
-```lua
+```luau
 local Square = Square.new() -- Or, Drawing.new("Square")
 ```
 # Properties
 
 ## Visible
-```lua
+```luau
 Square.Visible: boolean
 ```
 
 ---
 
 ## Color
-```lua
+```luau
 Square.Color: Color3
 ```
 
 ---
 
 ## ZIndex
-```lua
+```luau
 Square.ZIndex: number
 ```
 Range `[-2147483647, 2147483647]`.
@@ -27,42 +27,42 @@ Range `[-2147483647, 2147483647]`.
 ---
 
 ## Opacity
-```lua
+```luau
 Square.Opacity: number
 ```
 
 ---
 
 ## Thickness
-```lua
+```luau
 Square.Thickness: number
 ```
 
 ---
 
 ## Size
-```lua
+```luau
 Square.Size: Vector2
 ```
 
 ---
 
 ## Position
-```lua
+```luau
 Square.Position: Vector2
 ```
 
 ---
 
 ## Filled
-```lua
+```luau
 Square.Filled: boolean
 ```
 
 ---
 
 ## Rounding
-```lua
+```luau
 Square.Rounding: number
 ```
 
@@ -71,7 +71,7 @@ Square.Rounding: number
 # Methods
 
 ## Remove
-```lua
+```luau
 Square:Remove(): ()
 ```
 Permanently removes the drawing object.

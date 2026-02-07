@@ -2,7 +2,7 @@
 
 ## compile
 ### Definition
-```lua
+```luau
 function luau.compile(source: string, options: {
     optimizationLevel: 0 | 1 | 2?,
     coverageLevel: 0 | 1 | 2?,
@@ -19,7 +19,7 @@ function luau.compile(source: string, options: {
 ### Description
 Compiles the given source code into Luau bytecode. An error will be thrown if the source code contains syntax errors or other issues that prevent successful compilation.
 ### Code Samples
-```lua
+```luau
 local bytecode = luau.compile("print('Hello, World!')", {
     optimizationLevel = 2,
     coverageLevel = 0,
@@ -34,7 +34,7 @@ func()  -- Outputs: Hello, World!
 
 ## load
 ### Definition
-```lua
+```luau
 function luau.load(bytecode: string, options: {
     debugName: string?,
     environment: { [string]: any }?,
@@ -52,7 +52,7 @@ function luau.load(bytecode: string, options: {
 ### Description
 Loads a function from the given Luau bytecode string. An error will be thrown if the bytecode is invalid or cannot be loaded. Note that if `environment` is enabled, native code generation and optimizations are forcefully disabled.
 ### Code Samples
-```lua
+```luau
 local bytecode = luau.compile("return 42", {
     optimizationLevel = 2,
     coverageLevel = 0,
