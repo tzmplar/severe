@@ -46,6 +46,7 @@
   * [Player](Reference/World/Player.md)
   * [Players](Reference/World/Players.md)
   * [RunService](Reference/World/RunService.md)
+  * [UserInputService](Reference/World/UserInputService.md)
   * [ValueBase](Reference/World/ValueBase.md)
   * [Workspace](Reference/World/Workspace.md)
 * [Enumerations](Reference/Enumerations.md)
