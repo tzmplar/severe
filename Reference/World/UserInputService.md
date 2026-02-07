@@ -45,10 +45,10 @@ Sets the mouse position to the specified X and Y coordinates.
 
 ## MouseBehavior
 
-### Type
+### Definition
 
 ```luau
-Enum.MouseBehavior
+UserInputService.MouseBehavior: Enum.MouseBehavior
 ```
 
 ### Description
@@ -59,10 +59,10 @@ Controls how the mouse behaves (e.g., locked, default). Can be read and written.
 
 ## MouseDeltaSensitivity
 
-### Type
+### Definition
 
 ```luau
-number
+UserInputService.MouseDeltaSensitivity: number
 ```
 
 ### Description
@@ -73,10 +73,10 @@ The sensitivity of mouse movement delta. Can be read and written.
 
 ## MouseIconEnabled
 
-### Type
+### Definition
 
 ```luau
-boolean
+UserInputService.MouseIconEnabled: boolean
 ```
 
 ### Description
