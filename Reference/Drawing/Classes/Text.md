@@ -80,7 +80,8 @@ Range `[0, 31]`.
 
 ---
 # Methods
-#### Remove
+
+## Remove
 ```luau
 Text:Remove(): ()
 ```

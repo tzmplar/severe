@@ -4,19 +4,19 @@
 
 ### Drawing.new
 
-#### Definition
+**Definition**
 
 ```luau
 function Drawing.new(class: string): userdata
 ```
 
-#### Parameters
+**Parameters**
 
 | Name  | Type   | Description                                                |
 | ----- | ------ | ---------------------------------------------------------- |
 | class | string | Valid classes can be found under the "Classes" sub-folder. |
 
-#### Description
+**Description**
 
 Will create a new static drawing on the screen, it's retained, meaning you will have to manually describe it (set it's color, position, size), and manually clean-up.
 
@@ -24,13 +24,13 @@ Will create a new static drawing on the screen, it's retained, meaning you will 
 
 ### Drawing.clear
 
-#### Definition
+**Definition**
 
 ```luau
 function Drawing.clear(): ()
 ```
 
-#### Description
+**Description**
 
 Will clear all the static objects created, this will also include static objects that were created by other scripts.
 
