@@ -6,7 +6,7 @@ A coordinate frame representing position and rotation in 3D space.
 
 ### CFrame.new
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.new(): CFrame
@@ -17,7 +17,7 @@ function CFrame.new(x: number, y: number, z: number, qx: number, qy: number, qz:
 function CFrame.new(x: number, y: number, z: number, R00: number, R01: number, R02: number, R10: number, R11: number, R12: number, R20: number, R21: number, R22: number): CFrame
 ```
 
-#### Description
+### Description
 
 Creates a new CFrame. Can be constructed in several ways:
 - Empty constructor creates an identity CFrame at (0, 0, 0)
@@ -26,7 +26,7 @@ Creates a new CFrame. Can be constructed in several ways:
 - Position with quaternion values for rotation
 - Position with full rotation matrix components
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Identity CFrame
@@ -46,14 +46,14 @@ local cf4 = CFrame.new(Vector3.new(0, 5, 0), Vector3.new(10, 5, 10))
 
 ### CFrame.fromEulerAnglesXYZ
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.fromEulerAnglesXYZ(rx: number, ry: number, rz: number): CFrame
 function CFrame.fromEulerAnglesXYZ(rotation: Vector3): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type    | Description                           |
 | -------- | ------- | ------------------------------------- |
@@ -62,17 +62,17 @@ function CFrame.fromEulerAnglesXYZ(rotation: Vector3): CFrame
 | rz       | number  | Rotation around Z-axis in radians     |
 | rotation | Vector3 | Vector containing rotation angles     |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a rotated CFrame using Euler angles in X, Y, Z order (roll, pitch, yaw).
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Rotate 90 degrees (π/2 radians) around Y-axis
@@ -87,14 +87,14 @@ local cf2 = CFrame.fromEulerAnglesXYZ(rotation)
 
 ### CFrame.fromEulerAnglesYXZ
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.fromEulerAnglesYXZ(rx: number, ry: number, rz: number): CFrame
 function CFrame.fromEulerAnglesYXZ(rotation: Vector3): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type    | Description                           |
 | -------- | ------- | ------------------------------------- |
@@ -103,13 +103,13 @@ function CFrame.fromEulerAnglesYXZ(rotation: Vector3): CFrame
 | rz       | number  | Rotation around Z-axis in radians     |
 | rotation | Vector3 | Vector containing rotation angles     |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a rotated CFrame using Euler angles in Y, X, Z order.
 
@@ -117,13 +117,13 @@ Creates a rotated CFrame using Euler angles in Y, X, Z order.
 
 ### CFrame.fromOrientation
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.fromOrientation(rx: number, ry: number, rz: number): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                       |
 | ---- | ------ | --------------------------------- |
@@ -131,13 +131,13 @@ function CFrame.fromOrientation(rx: number, ry: number, rz: number): CFrame
 | ry   | number | Rotation around Y-axis in radians |
 | rz   | number | Rotation around Z-axis in radians |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a rotated CFrame from orientation angles (equivalent to fromEulerAnglesYXZ).
 
@@ -145,30 +145,30 @@ Creates a rotated CFrame from orientation angles (equivalent to fromEulerAnglesY
 
 ### CFrame.fromAxisAngle
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.fromAxisAngle(axis: Vector3, rotation: number): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type    | Description                        |
 | -------- | ------- | ---------------------------------- |
 | axis     | Vector3 | The axis of rotation (unit vector) |
 | rotation | number  | The angle of rotation in radians   |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a CFrame rotated around the specified axis by the given angle.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Rotate 45 degrees around the Y-axis
@@ -180,13 +180,13 @@ local cf = CFrame.fromAxisAngle(axis, math.pi/4)
 
 ### CFrame.fromMatrix
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.fromMatrix(position: Vector3, vX: Vector3, vY: Vector3, vZ: Vector3): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type    | Description                          |
 | -------- | ------- | ------------------------------------ |
@@ -195,13 +195,13 @@ function CFrame.fromMatrix(position: Vector3, vX: Vector3, vY: Vector3, vZ: Vect
 | vY       | Vector3 | The up vector                        |
 | vZ       | Vector3 | The negative look vector             |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a CFrame from a position and three directional vectors representing the rotation matrix.
 
@@ -209,13 +209,13 @@ Creates a CFrame from a position and three directional vectors representing the 
 
 ### CFrame.lookAt
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.lookAt(from: Vector3, to: Vector3, up: Vector3?): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type     | Description                                     |
 | ---- | -------- | ----------------------------------------------- |
@@ -223,17 +223,17 @@ function CFrame.lookAt(from: Vector3, to: Vector3, up: Vector3?): CFrame
 | to   | Vector3  | The position to look at                         |
 | up   | Vector3? | Optional up vector (defaults to world up)       |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a CFrame positioned at 'from' and oriented to look at 'to'.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Create a CFrame looking from origin to a point
@@ -247,13 +247,13 @@ local cf2 = CFrame.lookAt(Vector3.new(0, 0, 0), Vector3.new(5, 5, 5), Vector3.ne
 
 ### CFrame.Angles
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame.Angles(rx: number, ry: number, rz: number): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                       |
 | ---- | ------ | --------------------------------- |
@@ -261,13 +261,13 @@ function CFrame.Angles(rx: number, ry: number, rz: number): CFrame
 | ry   | number | Rotation around Y-axis in radians |
 | rz   | number | Rotation around Z-axis in radians |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Creates a rotated CFrame from Euler angles (equivalent to fromOrientation).
 
@@ -277,23 +277,23 @@ Creates a rotated CFrame from Euler angles (equivalent to fromOrientation).
 
 ### Inverse
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:Inverse(): CFrame
 ```
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Returns the inverse of this CFrame. When multiplied with the original, produces an identity CFrame.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local cf = CFrame.new(10, 20, 30)
@@ -305,30 +305,30 @@ local identity = cf * inverse -- Results in CFrame at origin
 
 ### Lerp
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:Lerp(goal: CFrame, alpha: number): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type   | Description                              |
 | ----- | ------ | ---------------------------------------- |
 | goal  | CFrame | The target CFrame to interpolate towards |
 | alpha | number | The interpolation factor (0 to 1)        |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Returns a CFrame interpolated between this CFrame and the goal CFrame by the alpha amount.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local start = CFrame.new(0, 0, 0)
@@ -340,25 +340,25 @@ local halfway = start:Lerp(goal, 0.5) -- CFrame at (5, 5, 5)
 
 ### ToWorldSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToWorldSpace(cf: CFrame): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                         |
 | ---- | ------ | ----------------------------------- |
 | cf   | CFrame | The CFrame in object space          |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Transforms a CFrame from object space to world space. Equivalent to `self * cf`.
 
@@ -366,25 +366,25 @@ Transforms a CFrame from object space to world space. Equivalent to `self * cf`.
 
 ### ToObjectSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToObjectSpace(cf: CFrame): CFrame
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                    |
 | ---- | ------ | ------------------------------ |
 | cf   | CFrame | The CFrame in world space      |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | CFrame |
 
-#### Description
+### Description
 
 Transforms a CFrame from world space to object space. Equivalent to `self:Inverse() * cf`.
 
@@ -392,29 +392,29 @@ Transforms a CFrame from world space to object space. Equivalent to `self:Invers
 
 ### PointToWorldSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:PointToWorldSpace(point: Vector3): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description                  |
 | ----- | ------- | ---------------------------- |
 | point | Vector3 | The point in object space    |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Transforms a point from object space to world space.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local cf = CFrame.new(10, 0, 0)
@@ -426,25 +426,25 @@ local worldPoint = cf:PointToWorldSpace(localPoint) -- Vector3(15, 0, 0)
 
 ### PointToObjectSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:PointToObjectSpace(point: Vector3): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description               |
 | ----- | ------- | ------------------------- |
 | point | Vector3 | The point in world space  |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Transforms a point from world space to object space.
 
@@ -452,25 +452,25 @@ Transforms a point from world space to object space.
 
 ### VectorToWorldSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:VectorToWorldSpace(vector: Vector3): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name   | Type    | Description                   |
 | ------ | ------- | ----------------------------- |
 | vector | Vector3 | The vector in object space    |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Transforms a vector from object space to world space (rotation only, no translation).
 
@@ -478,25 +478,25 @@ Transforms a vector from object space to world space (rotation only, no translat
 
 ### VectorToObjectSpace
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:VectorToObjectSpace(vector: Vector3): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name   | Type    | Description                |
 | ------ | ------- | -------------------------- |
 | vector | Vector3 | The vector in world space  |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Transforms a vector from world space to object space (rotation only, no translation).
 
@@ -504,23 +504,23 @@ Transforms a vector from world space to object space (rotation only, no translat
 
 ### GetComponents
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:GetComponents(): (number, number, number, number, number, number, number, number, number, number, number, number)
 ```
 
-#### Returns
+### Returns
 
 | Type                                                                                              |
 | ------------------------------------------------------------------------------------------------- |
 | (number, number, number, number, number, number, number, number, number, number, number, number) |
 
-#### Description
+### Description
 
 Returns the 12 components of the CFrame: position (x, y, z) and rotation matrix (R00, R01, R02, R10, R11, R12, R20, R21, R22).
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local cf = CFrame.new(10, 20, 30)
@@ -532,19 +532,19 @@ print(x, y, z) -- 10, 20, 30
 
 ### ToOrientation
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToOrientation(): (number, number, number)
 ```
 
-#### Returns
+### Returns
 
 | Type                        |
 | --------------------------- |
 | (number, number, number)    |
 
-#### Description
+### Description
 
 Returns the orientation of the CFrame as three Euler angles in radians (rx, ry, rz) in Y, X, Z order.
 
@@ -552,23 +552,23 @@ Returns the orientation of the CFrame as three Euler angles in radians (rx, ry, 
 
 ### ToEulerAnglesXYZ
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToEulerAnglesXYZ(): (number, number, number)
 ```
 
-#### Returns
+### Returns
 
 | Type                        |
 | --------------------------- |
 | (number, number, number)    |
 
-#### Description
+### Description
 
 Returns the orientation of the CFrame as three Euler angles in radians (rx, ry, rz) in X, Y, Z order.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local cf = CFrame.Angles(0, math.pi/2, 0)
@@ -580,19 +580,19 @@ print(rx, ry, rz)
 
 ### ToEulerAnglesYXZ
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToEulerAnglesYXZ(): (number, number, number)
 ```
 
-#### Returns
+### Returns
 
 | Type                        |
 | --------------------------- |
 | (number, number, number)    |
 
-#### Description
+### Description
 
 Returns the orientation of the CFrame as three Euler angles in radians (rx, ry, rz) in Y, X, Z order.
 
@@ -600,23 +600,23 @@ Returns the orientation of the CFrame as three Euler angles in radians (rx, ry, 
 
 ### ToAxisAngle
 
-#### Definition
+### Definition
 
 ```luau
 function CFrame:ToAxisAngle(): (Vector3, number)
 ```
 
-#### Returns
+### Returns
 
 | Type               |
 | ------------------ |
 | (Vector3, number)  |
 
-#### Description
+### Description
 
 Returns the axis-angle representation of the CFrame's rotation as a unit vector and rotation angle in radians.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local cf = CFrame.fromAxisAngle(Vector3.new(0, 1, 0), math.pi/4)

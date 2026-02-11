@@ -6,29 +6,29 @@ A websocket client for establishing and managing WebSocket connections.
 
 ### WebsocketClient.new
 
-#### Definition
+### Definition
 
 ```luau
 function WebsocketClient.new(url: string): WebsocketClient
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                              |
 | ---- | ------ | ---------------------------------------- |
 | url  | string | The WebSocket connection URL             |
 
-#### Returns
+### Returns
 
 | Type            |
 | --------------- |
 | WebsocketClient |
 
-#### Description
+### Description
 
-Creates a new WebsocketClient and connects to the specified URL. In addition to any user-specified headers, Synapse X will add `Syn-Signature`, `Syn-Fingerprint`, and `Syn-User-Identifier` headers automatically.
+Creates a new WebsocketClient and connects to the specified URL.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Create a WebSocket connection
@@ -68,17 +68,17 @@ The WebSocket connection URL that this client is connected to. This property is 
 
 ### Disconnect
 
-#### Definition
+### Definition
 
 ```luau
 function WebsocketClient:Disconnect(): ()
 ```
 
-#### Description
+### Description
 
 Disconnects the WebSocket. Yields until the client is fully disconnected. After calling this method, the WebSocket connection is closed and no further messages can be sent or received.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local ws = WebsocketClient.new("ws://example.com:8080")
@@ -95,24 +95,24 @@ print("WebSocket disconnected")
 
 ### Send
 
-#### Definition
+### Definition
 
 ```luau
 function WebsocketClient:Send(message: string, isBinary: boolean?): ()
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type     | Description                                               |
 | -------- | -------- | --------------------------------------------------------- |
 | message  | string   | The message payload to send                               |
 | isBinary | boolean? | Whether to send as binary data (defaults to false)        |
 
-#### Description
+### Description
 
 Sends a message through the WebSocket connection. The message can be sent as either text or binary data based on the `isBinary` parameter.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local ws = WebsocketClient.new("ws://example.com:8080")
@@ -134,24 +134,24 @@ ws:Send(binaryData, true)
 
 ### DataReceived
 
-#### Definition
+### Definition
 
 ```luau
 WebsocketClient.DataReceived: Signal<(payload: string, isBinary: boolean) -> ()>
 ```
 
-#### Parameters
+### Parameters
 
 | Name     | Type    | Description                                    |
 | -------- | ------- | ---------------------------------------------- |
 | payload  | string  | The received message data                      |
 | isBinary | boolean | Whether the received data is binary            |
 
-#### Description
+### Description
 
 Fires when data is received from the WebSocket connection. The event provides the payload as a string and a boolean indicating whether it's binary data.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local ws = WebsocketClient.new("ws://example.com:8080")

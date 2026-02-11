@@ -6,14 +6,14 @@ A 3D vector with X, Y, and Z components.
 
 ### Vector3.new
 
-#### Definition
+### Definition
 
 ```luau
 function Vector3.new(x: number, y: number, z: number): Vector3
 function Vector3.new(): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                 |
 | ---- | ------ | --------------------------- |
@@ -21,17 +21,17 @@ function Vector3.new(): Vector3
 | y    | number | The Y component             |
 | z    | number | The Z component             |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Creates a new Vector3. If no parameters are provided, creates a zero vector (0, 0, 0).
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Create a vector
@@ -105,25 +105,25 @@ A normalized version of the vector (length of 1).
 
 ### Dot
 
-#### Definition
+### Definition
 
 ```luau
 function Vector3:Dot(other: Vector3): number
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description              |
 | ----- | ------- | ------------------------ |
 | other | Vector3 | The other vector         |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | number |
 
-#### Description
+### Description
 
 Returns the dot product of this vector and another vector.
 
@@ -131,25 +131,25 @@ Returns the dot product of this vector and another vector.
 
 ### Cross
 
-#### Definition
+### Definition
 
 ```luau
 function Vector3:Cross(other: Vector3): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description              |
 | ----- | ------- | ------------------------ |
 | other | Vector3 | The other vector         |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Returns the cross product of this vector and another vector.
 
@@ -157,26 +157,26 @@ Returns the cross product of this vector and another vector.
 
 ### Lerp
 
-#### Definition
+### Definition
 
 ```luau
 function Vector3:Lerp(goal: Vector3, alpha: number): Vector3
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description                              |
 | ----- | ------- | ---------------------------------------- |
 | goal  | Vector3 | The target vector to interpolate towards |
 | alpha | number  | The interpolation factor (0 to 1)        |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector3 |
 
-#### Description
+### Description
 
 Returns a Vector3 interpolated between this vector and the goal vector by the alpha amount.
 
@@ -275,54 +275,3 @@ local vec = Vector3.new(10, 20, 30)
 print(vec) -- "Vector3(10, 20, 30)"
 ```
 
-***
-
-## Constants
-
-### Vector3.zero
-
-```luau
-Vector3.zero: Vector3
-```
-
-A Vector3 with all components set to 0 (0, 0, 0).
-
-***
-
-### Vector3.one
-
-```luau
-Vector3.one: Vector3
-```
-
-A Vector3 with all components set to 1 (1, 1, 1).
-
-***
-
-### Vector3.xAxis
-
-```luau
-Vector3.xAxis: Vector3
-```
-
-A unit vector along the X-axis (1, 0, 0).
-
-***
-
-### Vector3.yAxis
-
-```luau
-Vector3.yAxis: Vector3
-```
-
-A unit vector along the Y-axis (0, 1, 0).
-
-***
-
-### Vector3.zAxis
-
-```luau
-Vector3.zAxis: Vector3
-```
-
-A unit vector along the Z-axis (0, 0, 1).

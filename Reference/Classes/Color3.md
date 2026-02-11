@@ -6,13 +6,13 @@ A data type representing a color with red, green, and blue components.
 
 ### Color3.new
 
-#### Definition
+### Definition
 
 ```luau
 function Color3.new(r: number, g: number, b: number): Color3
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                      |
 | ---- | ------ | -------------------------------- |
@@ -20,17 +20,17 @@ function Color3.new(r: number, g: number, b: number): Color3
 | g    | number | Green component (0 to 1)         |
 | b    | number | Blue component (0 to 1)          |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | Color3 |
 
-#### Description
+### Description
 
 Creates a new Color3 from RGB values in the range 0 to 1.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Pure red
@@ -53,13 +53,13 @@ local gray = Color3.new(0.5, 0.5, 0.5)
 
 ### Color3.fromRGB
 
-#### Definition
+### Definition
 
 ```luau
 function Color3.fromRGB(r: number, g: number, b: number): Color3
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                      |
 | ---- | ------ | -------------------------------- |
@@ -67,17 +67,17 @@ function Color3.fromRGB(r: number, g: number, b: number): Color3
 | g    | number | Green component (0 to 255)       |
 | b    | number | Blue component (0 to 255)        |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | Color3 |
 
-#### Description
+### Description
 
 Creates a new Color3 from RGB values in the range 0 to 255.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Pure red
@@ -94,13 +94,13 @@ local skyBlue = Color3.fromRGB(135, 206, 235)
 
 ### Color3.fromHSV
 
-#### Definition
+### Definition
 
 ```luau
 function Color3.fromHSV(h: number, s: number, v: number): Color3
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                           |
 | ---- | ------ | ------------------------------------- |
@@ -108,17 +108,17 @@ function Color3.fromHSV(h: number, s: number, v: number): Color3
 | s    | number | Saturation component (0 to 1)         |
 | v    | number | Value/brightness component (0 to 1)   |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | Color3 |
 
-#### Description
+### Description
 
 Creates a new Color3 from HSV (Hue, Saturation, Value) color space values.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Pure red (hue = 0)
@@ -138,29 +138,29 @@ local pink = Color3.fromHSV(0, 0.5, 1)
 
 ### Color3.fromHex
 
-#### Definition
+### Definition
 
 ```luau
 function Color3.fromHex(hex: string): Color3
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                                    |
 | ---- | ------ | ---------------------------------------------- |
 | hex  | string | Hexadecimal color string (e.g., "#FF5733")     |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | Color3 |
 
-#### Description
+### Description
 
 Creates a new Color3 from a hexadecimal color string. The string can optionally start with "#".
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- With hash
@@ -179,23 +179,23 @@ local cyan = Color3.fromHex("#00FFFF")
 
 ### ToHSV
 
-#### Definition
+### Definition
 
 ```luau
 function Color3:ToHSV(): (number, number, number)
 ```
 
-#### Returns
+### Returns
 
 | Type                        |
 | --------------------------- |
 | (number, number, number)    |
 
-#### Description
+### Description
 
 Converts the Color3 to HSV (Hue, Saturation, Value) format and returns the three components.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local color = Color3.fromRGB(255, 128, 0)
@@ -207,30 +207,30 @@ print(h, s, v)
 
 ### Lerp
 
-#### Definition
+### Definition
 
 ```luau
 function Color3:Lerp(goal: Color3, alpha: number): Color3
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type   | Description                              |
 | ----- | ------ | ---------------------------------------- |
 | goal  | Color3 | The target color to interpolate towards  |
 | alpha | number | The interpolation factor (0 to 1)        |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | Color3 |
 
-#### Description
+### Description
 
 Returns a Color3 interpolated between this color and the goal color by the alpha amount.
 
-#### Code Samples
+### Code Samples
 
 ```luau
 local red = Color3.fromRGB(255, 0, 0)

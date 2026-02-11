@@ -6,31 +6,31 @@ A 2D vector with X and Y components.
 
 ### Vector2.new
 
-#### Definition
+### Definition
 
 ```luau
 function Vector2.new(x: number, y: number): Vector2
 function Vector2.new(): Vector2
 ```
 
-#### Parameters
+### Parameters
 
 | Name | Type   | Description                 |
 | ---- | ------ | --------------------------- |
 | x    | number | The X component             |
 | y    | number | The Y component             |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector2 |
 
-#### Description
+### Description
 
 Creates a new Vector2. If no parameters are provided, creates a zero vector (0, 0).
 
-#### Code Samples
+### Code Samples
 
 ```luau
 -- Create a vector
@@ -93,25 +93,25 @@ A normalized version of the vector (length of 1).
 
 ### Dot
 
-#### Definition
+### Definition
 
 ```luau
 function Vector2:Dot(other: Vector2): number
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description              |
 | ----- | ------- | ------------------------ |
 | other | Vector2 | The other vector         |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | number |
 
-#### Description
+### Description
 
 Returns the dot product of this vector and another vector.
 
@@ -119,25 +119,25 @@ Returns the dot product of this vector and another vector.
 
 ### Cross
 
-#### Definition
+### Definition
 
 ```luau
 function Vector2:Cross(other: Vector2): number
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description              |
 | ----- | ------- | ------------------------ |
 | other | Vector2 | The other vector         |
 
-#### Returns
+### Returns
 
 | Type   |
 | ------ |
 | number |
 
-#### Description
+### Description
 
 Returns the 2D cross product (scalar) of this vector and another vector.
 
@@ -145,26 +145,26 @@ Returns the 2D cross product (scalar) of this vector and another vector.
 
 ### Lerp
 
-#### Definition
+### Definition
 
 ```luau
 function Vector2:Lerp(goal: Vector2, alpha: number): Vector2
 ```
 
-#### Parameters
+### Parameters
 
 | Name  | Type    | Description                              |
 | ----- | ------- | ---------------------------------------- |
 | goal  | Vector2 | The target vector to interpolate towards |
 | alpha | number  | The interpolation factor (0 to 1)        |
 
-#### Returns
+### Returns
 
 | Type    |
 | ------- |
 | Vector2 |
 
-#### Description
+### Description
 
 Returns a Vector2 interpolated between this vector and the goal vector by the alpha amount.
 
@@ -263,44 +263,3 @@ local vec = Vector2.new(100, 200)
 print(vec) -- "Vector2(100, 200)"
 ```
 
-***
-
-## Constants
-
-### Vector2.zero
-
-```luau
-Vector2.zero: Vector2
-```
-
-A Vector2 with all components set to 0 (0, 0).
-
-***
-
-### Vector2.one
-
-```luau
-Vector2.one: Vector2
-```
-
-A Vector2 with all components set to 1 (1, 1).
-
-***
-
-### Vector2.xAxis
-
-```luau
-Vector2.xAxis: Vector2
-```
-
-A unit vector along the X-axis (1, 0).
-
-***
-
-### Vector2.yAxis
-
-```luau
-Vector2.yAxis: Vector2
-```
-
-A unit vector along the Y-axis (0, 1).

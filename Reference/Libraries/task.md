@@ -21,8 +21,9 @@ function task.spawn(functionOrThread: (() -> ()) | thread, ...: any): thread
 
 ### Returns
 
-<table data-header-hidden data-full-width="false"><thead><tr><th valign="middle">Type</th></tr></thead><tbody><tr><td valign="middle"><pre class="language-luau"><code class="lang-luau">thread
-</code></pre></td></tr></tbody></table>
+| Type   |
+| ------ |
+| thread |
 
 ### Description
 
@@ -70,8 +71,9 @@ function task.defer(functionOrThread: (() -> ()) | thread, ...: any): thread
 
 ### Returns
 
-<table data-header-hidden data-full-width="false"><thead><tr><th valign="middle">Type</th></tr></thead><tbody><tr><td valign="middle"><pre class="language-luau"><code class="lang-luau">thread
-</code></pre></td></tr></tbody></table>
+| Type   |
+| ------ |
+| thread |
 
 ### Description
 
@@ -158,8 +160,9 @@ function task.delay(duration: number, functionOrThread: (() -> ()) | thread, ...
 
 ### Returns
 
-<table data-header-hidden data-full-width="false"><thead><tr><th valign="middle">Type</th></tr></thead><tbody><tr><td valign="middle"><pre class="language-luau"><code class="lang-luau">thread
-</code></pre></td></tr></tbody></table>
+| Type   |
+| ------ |
+| thread |
 
 ### Description
 
@@ -213,8 +216,9 @@ function task.wait(duration: number?): number
 
 ### Returns
 
-<table data-header-hidden data-full-width="false"><thead><tr><th valign="middle">Type</th></tr></thead><tbody><tr><td valign="middle"><pre class="language-luau"><code class="lang-luau">number
-</code></pre></td></tr></tbody></table>
+| Type   |
+| ------ |
+| number |
 
 ### Description
 
