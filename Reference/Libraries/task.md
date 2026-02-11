@@ -140,6 +140,63 @@ task.cancel(deferredThread)
 
 ---
 
+## task.delay
+
+### Definition
+
+```luau
+function task.delay(duration: number, functionOrThread: (() -> ()) | thread, ...: any): thread
+```
+
+### Parameters
+
+| Name             | Type                       | Description                                      |
+| ---------------- | -------------------------- | ------------------------------------------------ |
+| duration         | number                     | The time in seconds to wait before execution     |
+| functionOrThread | (() -> ()) \| thread       | The function or thread to execute after delay    |
+| ...              | any                        | Optional arguments to pass to the function       |
+
+### Returns
+
+<table data-header-hidden data-full-width="false"><thead><tr><th valign="middle">Type</th></tr></thead><tbody><tr><td valign="middle"><pre class="language-luau"><code class="lang-luau">thread
+</code></pre></td></tr></tbody></table>
+
+### Description
+
+Schedules a function or thread to execute after the specified duration in seconds. The function runs in a separate thread after the delay. Returns the thread that will be executed. This is useful for scheduling delayed operations without blocking the current thread.
+
+### Code Samples
+
+```luau
+-- Delay execution by 3 seconds
+task.delay(3, function()
+    print("This prints after 3 seconds")
+end)
+
+-- Delay with arguments
+task.delay(5, function(message, count)
+    for i = 1, count do
+        print(message)
+    end
+end, "Delayed message", 3)
+
+-- Delay a thread
+local thread = coroutine.create(function()
+    print("Thread executed after delay")
+end)
+task.delay(2, thread)
+
+-- Cancel a delayed task
+local delayedThread = task.delay(10, function()
+    print("This will be cancelled")
+end)
+task.wait(1)
+task.cancel(delayedThread)
+print("Delayed task cancelled")
+```
+
+---
+
 ## task.wait
 
 ### Definition
