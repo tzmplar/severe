@@ -18,13 +18,13 @@ function Drawing.attach(config: { [Drawing]: AttachmentConfig }): Cluster
 
 | Name   | Type                              | Description                                                            |
 | ------ | --------------------------------- | ---------------------------------------------------------------------- |
-| config | { [Drawing]: AttachmentConfig } | A table mapping drawing objects to their attachment configurations. |
+| config | { [Drawing]: AttachmentConfig } | A table mapping drawing objects to their attachment configurations |
 
 **Returns**
 
 | Type    | Description                                                      |
 | ------- | ---------------------------------------------------------------- |
-| Cluster | A cluster object that can be destroyed, paused, or resumed. |
+| Cluster | A cluster object that can be destroyed, paused, or resumed |
 
 **Description**
 
@@ -36,16 +36,16 @@ For positional drawings (Square, Circle, Image, Text):
 
 | Property    | Type         | Description                                   |
 | ----------- | ------------ | --------------------------------------------- |
-| Link        | Point        | The point to attach the drawing to.           |
-| Size        | UDim2        | Size of the drawing (Scale/Offset).           |
-| AnchorPoint | Vector2      | Anchor point for positioning (0-1 range).     |
+| Link        | Point        | The point to attach the drawing to           |
+| Size        | UDim2        | Size of the drawing (Scale/Offset)           |
+| AnchorPoint | Vector2      | Anchor point for positioning (0-1 range)     |
 
 For line-based drawings (Line, Polyline):
 
 | Property | Type  | Description                    |
 | -------- | ----- | ------------------------------ |
-| From     | Point | Starting point of the line.    |
-| To       | Point | Ending point of the line.      |
+| From     | Point | Starting point of the line    |
+| To       | Point | Ending point of the line      |
 
 **Code Samples**
 
@@ -100,15 +100,15 @@ Creates a point tracker for an instance with a CFrame property. The point automa
 
 | Property | Type    | Description                                           |
 | -------- | ------- | ----------------------------------------------------- |
-| CFrame   | CFrame  | The current CFrame of the tracked instance.           |
-| Size     | Vector3 | The current Size of the tracked instance.             |
-| Active   | boolean | Whether the point is actively tracking the instance.  |
+| CFrame   | CFrame  | The current CFrame of the tracked instance           |
+| Size     | Vector3 | The current Size of the tracked instance             |
+| Active   | boolean | Whether the point is actively tracking the instance  |
 
 **Methods**
 
 | Method  | Description                              |
 | ------- | ---------------------------------------- |
-| Destroy | Stops tracking and cleans up resources.  |
+| Destroy | Stops tracking and cleans up resources  |
 
 **Code Samples**
 
@@ -142,14 +142,14 @@ Creates a point at a fixed world-space position. The point represents a static l
 
 | Property | Type    | Description                                    |
 | -------- | ------- | ---------------------------------------------- |
-| Position | Vector3 | The world-space position of the point.         |
-| Active   | boolean | Whether the point is active.                   |
+| Position | Vector3 | The world-space position of the point         |
+| Active   | boolean | Whether the point is active                   |
 
 **Methods**
 
 | Method  | Description                             |
 | ------- | --------------------------------------- |
-| Destroy | Cleans up the point and its resources.  |
+| Destroy | Cleans up the point and its resources  |
 
 **Code Samples**
 
@@ -176,9 +176,9 @@ A cluster is returned by `Drawing.attach` and manages a group of attached drawin
 
 | Method  | Description                                               |
 | ------- | --------------------------------------------------------- |
-| Destroy | Destroys the cluster and all attached drawing objects.    |
-| Pause   | Pauses automatic updates for all drawings in the cluster. |
-| Resume  | Resumes automatic updates for all drawings in the cluster.|
+| Destroy | Destroys the cluster and all attached drawing objects    |
+| Pause   | Pauses automatic updates for all drawings in the cluster |
+| Resume  | Resumes automatic updates for all drawings in the cluster|
 
 **Code Samples**
 
