@@ -76,6 +76,8 @@ local Cluster = Drawing.attach {
     }
 }
 
+task.wait(10)
+
 -- Later, when done:
 Cluster:Destroy()
 ```
@@ -120,7 +122,9 @@ print(Head.CFrame)
 print(Head.Size)
 print(Head.Active)
 
--- Clean up when done
+task.wait(10)
+
+-- Clean up:
 Head:Destroy()
 ```
 
