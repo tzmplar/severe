@@ -32,7 +32,7 @@ Attaches drawing objects to 3D points in the world. The drawing objects will aut
 
 **Attachment Configurations**
 
-For positional drawings (Square, Circle, Image, Text):
+For `Square`, `Circle`, `Text`, `Image`:
 
 | Property    | Type         | Description                                   |
 | ----------- | ------------ | --------------------------------------------- |
@@ -40,7 +40,7 @@ For positional drawings (Square, Circle, Image, Text):
 | Size        | UDim2        | Size of the drawing (Scale/Offset)           |
 | AnchorPoint | Vector2      | Anchor point for positioning (0-1 range)     |
 
-For line-based drawings (Line, Polyline):
+For `Line`:
 
 | Property | Type  | Description                    |
 | -------- | ----- | ------------------------------ |
